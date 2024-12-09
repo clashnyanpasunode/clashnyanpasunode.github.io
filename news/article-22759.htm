@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashnyanpasunode.github.io/news/article-22759.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>kafka系列SpringBoot 中使用@KafkaListener详解与使用</title>
+        <meta name="description" content="说明 从2.2.4版开始，您可以直接在注释上指定Kafka使用者属性，这些属性将覆盖在使用者工厂中配置的具有相同名称的所有属性。您不能通过这种方式指定group.id和client.id属性。他们将被" />
+        <link rel="icon" href="__ADDON__/img/clashnyanpasunode/favicon.ico" type="image/x-icon"/>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="__ADDON__/js/frontend/clashnyanpasunode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/clashnyanpasunode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/clashnyanpasunode/aos/aos.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/clashnyanpasunode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/clashnyanpasunode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/clashnyanpasunode/main.css" rel="stylesheet">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FW6BH5KXK9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FW6BH5KXK9');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- ======= Header ======= -->
+    <header id="header" class="header d-flex align-items-center">
+        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+            <a href="/" class="logo d-flex align-items-center">
+                <p>ClashNyanpasu<span>Node</span></p>
+            </a>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">链接</a></li>
+                </ul>
+            </nav><!-- .navbar -->
+            <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+            <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+        </div>
+    </header><!-- End Header -->
+    <!-- End Header -->
+    <!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs ======= -->
+        <div class="breadcrumbs">
+            <div class="page-header d-flex align-items-center" style="background-image: url('');">
+                <div class="container position-relative">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-6 text-center">
+                            <h1>kafka系列SpringBoot 中使用@KafkaListener详解与使用</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav>
+                <div class="container">
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </nav>
+        </div><!-- End Breadcrumbs -->
+        <!-- ======= About Us Section ======= -->
+        <section id="about" class="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-md-9 xcblog-blog-list">
+                                          				  				  				<div id="content_views" class="htmledit_views"> <p>说明<br /> 从2.2.4版开始，您可以直接在注释上指定Kafka使用者属性，这些属性将覆盖在使用者工厂中配置的具有相同名称的所有属性。您不能通过这种方式指定group.id和client.id属性。他们将被忽略；</p> <p>可以使用#{…}或属性占位符（${…}）在SpEL上配置注释上的大多数属性。<br /> 比如:</p> <pre><code>@KafkaListener(id = "consumer-id",topics = "SHI_TOPIC1",concurrency = "${listen.concurrency:3}",             clientIdPrefix = "myClientId")</code></pre> <p>对于spring.kafka.listener.concurrency=3这个参数来说，它设置的是每个@KafkaListener的并发个数。每添加一个@KafkaListener, spring-kafka都会启动concurrency条Consumer线程来监听这些topic(注解可以指定监听多个topic), 当enable-auto-commit设为true时会直接在当前线程，即kafka consumer所在线程调用我们的@KafkaListener方法，如果设为false，则是将消息投放到阻塞队列中，另一边由Listener线程取出执行，有源码为证：</p> <p>所以，当concurrency=3，自动提交设置为false时，如果你程序里有两个方法标记了@KafkaListener，那么此时会启动 2 * 3 = 6 个Consumer线程，6个Listener线程。<br /> 这个信息在排查错误的时候非常重要，但官方文档居然没怎么提线程的事(不够详细)，只是在介绍KafkaContainerListener。特此记录</p> <h2>@KafkaListener详解</h2> <h3><a name="t2" rel="nofollow"></a><a id="id__id_16" rel="nofollow"></a>id 监听器的id</h3> <p><a id="__17" rel="nofollow"></a>①. 消费者线程命名规则</p> <p>填写:</p> <p>2020-11-19 14:24:15 c.d.b.k.KafkaListeners 120 [INFO] 线程:Thread[consumer-id5-1-C-1,5,main]-groupId:BASE-DEMO consumer-id5 消费</p> <p>没有填写ID:</p> <p>2020-11-19 10:41:26 c.d.b.k.KafkaListeners 137 [INFO] 线程:Thread[org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1,5,main] consumer-id7</p> <p>②.在相同容器中的监听器ID不能重复</p> <p>否则会报错</p> <pre><code>Caused by: java.lang.IllegalStateException: Another endpoint is already registered with id</code></pre> <p>③.会覆盖消费者工厂的消费组GroupId<br /> 假如配置文件属性配置了消费组kafka.consumer.group-id=BASE-DEMO<br /> 正常情况它是该容器中的默认消费组<br /> 但是如果设置了 @KafkaListener(id = "consumer-id7", topics = {"SHI_TOPIC3"})<br /> 那么当前消费者的消费组就是consumer-id7 ;</p> <p>当然如果你不想要他作为groupId的话 可以设置属性idIsGroup = false;那么还是会使用默认的GroupId;</p> <p>④. 如果配置了属性groupId,则其优先级最高<br /> &nbsp;@KafkaListener(id = "consumer-id5",idIsGroup = false,topics = "SHI_TOPIC3",groupId = "groupId-test")</p> <p> 例如上面代码中最终这个消费者的消费组GroupId是 “groupId-test”</p> <p>该id属性（如果存在）将用作Kafka消费者group.id属性,并覆盖消费者工厂中的已配置属性（如果存在）您还可以groupId显式设置或将其设置idIsGroup为false，以恢复使用使用者工厂的先前行为group.id。</p> <p>topicPattern 匹配Topic进行监听(与topics、topicPartitions 三选一)<br /> topicPartitions 显式分区分配<br /> 可以为监听器配置明确的主题和分区（以及可选的初始偏移量）</p> <pre><code>@KafkaListener(id = "thing2", topicPartitions = &nbsp; &nbsp; &nbsp; &nbsp; { @TopicPartition(topic = "topic1", partitions = { "0", "1" }), &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @TopicPartition(topic = "topic2", partitions = "0", &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;partitionOffsets = @PartitionOffset(partition = "1", initialOffset = "100")) &nbsp; &nbsp; &nbsp; &nbsp; }) public void listen(ConsumerRecord&lt;?, ?&gt; record) { &nbsp; &nbsp; ... }</code></pre> <p> 上面例子意思是 监听topic1的0,1分区；监听topic2的第0分区,并且第1分区从offset为100的开始消费;</p> <h3>errorHandler 异常处理</h3> <p>实现<code>KafkaListenerErrorHandler</code>; 然后做一些异常处理;</p> <pre><code>@Component public class KafkaDefaultListenerErrorHandler implements KafkaListenerErrorHandler {     @Override     public Object handleError(Message&lt;?&gt; message, ListenerExecutionFailedException exception) {         return null;     }      @Override     public Object handleError(Message&lt;?&gt; message, ListenerExecutionFailedException exception, Consumer&lt;?, ?&gt; consumer) {     	//do someting         return null;     } }</code></pre> <p>调用的时候 填写beanName;例如<code>errorHandler="kafkaDefaultListenerErrorHandler"</code></p> <h3>containerFactory 监听器工厂</h3> <blockquote> <p>指定生成监听器的工厂类;</p> </blockquote> <p>例如我写一个 批量消费的工厂类</p> <pre><code>    /**      * 监听器工厂 批量消费      * @return      */     @Bean     public KafkaListenerContainerFactory&lt;ConcurrentMessageListenerContainer&lt;Integer, String&gt;&gt; batchFactory() {         ConcurrentKafkaListenerContainerFactory&lt;Integer, String&gt; factory =                 new ConcurrentKafkaListenerContainerFactory&lt;&gt;();         factory.setConsumerFactory(kafkaConsumerFactory());         //设置为批量消费，每个批次数量在Kafka配置参数中设置ConsumerConfig.MAX_POLL_RECORDS_CONFIG         factory.setBatchListener(true);         return factory;     }</code></pre> <p>使用<code>containerFactory = "batchFactory"</code></p> <h3>clientIdPrefix 客户端前缀</h3> <blockquote> <p>会覆盖消费者工厂的<code>kafka.consumer.client-id</code>属性; 最为前缀后面接<code>-n</code>&nbsp;n是数字</p> </blockquote> <h3>concurrency并发数</h3> <p>会覆盖消费者工厂中的concurrency ,这里的并发数就是多线程消费; 比如说单机情况下,你设置了3; 相当于就是启动了3个客户端来分配消费分区;分布式情况 总线程数=concurrency*机器数量; 并不是设置越多越好,具体如何设置请看 属性concurrency的作用及配置(RoundRobinAssignor 、RangeAssignor)</p> <pre><code>    /**      * 监听器工厂       * @return      */     @Bean     public KafkaListenerContainerFactory&lt;ConcurrentMessageListenerContainer&lt;Integer, String&gt;&gt; concurrencyFactory() {         ConcurrentKafkaListenerContainerFactory&lt;Integer, String&gt; factory =                 new ConcurrentKafkaListenerContainerFactory&lt;&gt;();         factory.setConsumerFactory(kafkaConsumerFactory());         factory.setConcurrency(6);         return factory;     }</code></pre> <pre><code>&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; @KafkaListener(id = "consumer-id5",idIsGroup = false,topics = "SHI_TOPIC3", containerFactory = "concurrencyFactory",concurrency = "1)</code></pre> <p> 虽然使用的工厂是concurrencyFactory(concurrency配置了6); 但是他最终生成的监听器数量 是1;</p> <h3>properties 配置其他属性</h3> <p>kafka中的属性看<code>org.apache.kafka.clients.consumer.ConsumerConfig</code>&nbsp;;<br /> 同名的都可以修改掉;</p> <p>用法</p> <pre><code>    @KafkaListener(id = "consumer-id5",idIsGroup = false,topics = "SHI_TOPIC3", containerFactory = "concurrencyFactory",concurrency = "1"             , clientIdPrefix = "myClientId5",groupId = "groupId-test",             properties = {                     "enable.auto.commit:false","max.poll.interval.ms:6000" },errorHandler="kafkaDefaultListenerErrorHandler")</code></pre> <h2>@KafkaListener使用</h2> <h2><a name="t13" rel="nofollow"></a><a id="KafkaListenerEndpointRegistry_159" rel="nofollow"></a>KafkaListenerEndpointRegistry</h2> <pre><code>    @Autowired     private KafkaListenerEndpointRegistry registry;        //.... 获取所有注册的监听器         registry.getAllListenerContainers();</code></pre> <h3>设置入参验证器</h3> <p><strong>当您将Spring Boot与验证启动器一起使用时，将LocalValidatorFactoryBean自动配置：如下</strong></p> <pre><code>@Configuration @EnableKafka public class Config implements KafkaListenerConfigurer {  &nbsp; &nbsp; @Autowired &nbsp; &nbsp; private LocalValidatorFactoryBean validator; &nbsp; &nbsp; ...  &nbsp; &nbsp; @Override &nbsp; &nbsp; public void configureKafkaListeners(KafkaListenerEndpointRegistrar registrar) { &nbsp; &nbsp; &nbsp; registrar.setValidator(this.validator); &nbsp; &nbsp; } }</code></pre> <p><strong>使用</strong></p> <pre><code>@KafkaListener(id="validated", topics = "annotated35", errorHandler = "validationErrorHandler", &nbsp; &nbsp; &nbsp; containerFactory = "kafkaJsonListenerContainerFactory") public void validatedListener(@Payload @Valid ValidatedClass val) { &nbsp; &nbsp; ... }  @Bean public KafkaListenerErrorHandler validationErrorHandler() { &nbsp; &nbsp; return (m, e) -&gt; { &nbsp; &nbsp; &nbsp; &nbsp; ... &nbsp; &nbsp; }; }</code></pre> <p></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-22303.htm">动物疫苗间隔时间多久打一次（动物疫苗多长时间内打）</a></p>
+                                        <p>下一个：<a href="/news/article-22760.htm">Golang 实现 Redis(10): 本地原子性事务_在线工具</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-22760.htm" title="Golang 实现 Redis(10): 本地原子性事务_在线工具">Golang 实现 Redis(10): 本地原子性事务_在线工具</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-11-node-share.htm" title="「9月11日」最高速度19.5M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「9月11日」最高速度19.5M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-27-node-share-links.htm" title="「9月27日」最高速度20.6M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「9月27日」最高速度20.6M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-23-linux-clash-nyanpasu.htm" title="「10月23日」最高速度18.7M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「10月23日」最高速度18.7M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-17-clash-nyanpasu-node.htm" title="「8月17日」最高速度18.1M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「8月17日」最高速度18.1M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-10-free-node-subscribe-links.htm" title="「8月10日」最高速度18.2M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「8月10日」最高速度18.2M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-16-free-high-speed-nodes.htm" title="「10月16日」最高速度18M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「10月16日」最高速度18M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-13-clash-nyanpasu-node.htm" title="「9月13日」最高速度22.1M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「9月13日」最高速度22.1M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-22303.htm" title="动物疫苗间隔时间多久打一次（动物疫苗多长时间内打）">动物疫苗间隔时间多久打一次（动物疫苗多长时间内打）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-12-free-subscribe-node.htm" title="「8月12日」最高速度20.7M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「8月12日」最高速度20.7M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Us Section -->
+    </main><!-- End #main -->
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+        <div class="container mt-4">
+            <div class="copyright">
+                Clash Nyanpasu Node节点订阅站 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <!-- End Footer -->
+    <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <div id="preloader"></div>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/clashnyanpasunode/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/purecounter/purecounter_vanilla.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/swiper/swiper-bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/php-email-form/validate.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/clashnyanpasunode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
