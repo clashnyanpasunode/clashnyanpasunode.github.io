@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashnyanpasunode.github.io/news/article-32114.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Redis主从同步详解</title>
+        <meta name="description" content="2.8版本以前 同步(snyc) 执行步骤：  从服务器发送snyc给主服务器 主服务器收到命令后，开始执行bgsave操作，将生成RDB文件，将生成的RDB文件同步给从服务。并使用一个缓冲区记录从现" />
+        <link rel="icon" href="/assets/website/img/clashnyanpasunode/favicon.ico" type="image/x-icon"/>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="__ADDON__/js/frontend/clashnyanpasunode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/clashnyanpasunode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/clashnyanpasunode/aos/aos.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/clashnyanpasunode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/clashnyanpasunode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/clashnyanpasunode/main.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FW6BH5KXK9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FW6BH5KXK9');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- ======= Header ======= -->
+    <header id="header" class="header d-flex align-items-center">
+        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+            <a href="/" class="logo d-flex align-items-center">
+                <p>ClashNyanpasu<span>Node</span></p>
+            </a>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">链接</a></li>
+                </ul>
+            </nav><!-- .navbar -->
+            <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+            <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+        </div>
+    </header><!-- End Header -->
+    <!-- End Header -->
+    <!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs ======= -->
+        <div class="breadcrumbs">
+            <div class="page-header d-flex align-items-center" style="background-image: url('');">
+                <div class="container position-relative">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-6 text-center">
+                            <h1>Redis主从同步详解</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav>
+                <div class="container">
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </nav>
+        </div><!-- End Breadcrumbs -->
+        <!-- ======= About Us Section ======= -->
+        <section id="about" class="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-md-9 xcblog-blog-list">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<h3 id="28版本以前">2.8版本以前</h3> <h4 id="同步snyc">同步(snyc)</h4> <p>执行步骤：</p> <ol> <li>从服务器发送<code>snyc</code>给主服务器</li> <li>主服务器收到命令后，开始执行<code>bgsave</code>操作，将生成RDB文件，将生成的RDB文件同步给从服务。并使用一个缓冲区记录从现在开始的写命令</li> <li>从服务载入接受到的RDB文件，期间不可进行其他操作。</li> <li>主服务将缓冲区里的命令同步给从服务器<br /><img decoding="async" src="https://img2022.cnblogs.com/blog/781971/202204/781971-20220423143504070-1553663527.png" alt="Redis主从同步详解"></li> </ol> <h4 id="传播">传播</h4> <p>同步完成之后，后续的命令都是通过传播的方式发送给从服务器的。即当主服务执行完一条命令后，将该命令发送给从服务，完成数据的同步。</p> <h4 id="缺陷">缺陷</h4> <p>场景：</p> <ul> <li>首次复制，不存在问题，毕竟新连接上一个master服务器，则需要复制其全量的数据</li> <li>断开后重连复制，这是，仍是需要通过<code>sync</code>进行全量的复制，这就是很耗费资源的。毕竟如果断开时间短，如中间网络抖动，导致中间短暂性断开，再次复制全量数据，成本太高。</li> </ul> <p>关于<code>sync</code>命令：</p> <ol> <li>主服务器需要执行<code>bgsave</code>命令来生成RDB文件，这个操作会耗费主服务器的大量CPU、内存和磁盘IO资源。</li> <li>主服务器将RDB文件发送给从服务器，会消耗双方的网络资源(带宽和流量)。</li> <li>接受到RDB文件后，从服务器需要载入RDB文件，这个载入期间，从服务器因为阻塞而没有办法处理命令请求。</li> </ol> <h3 id="28版本以后">2.8版本以后</h3> <p>psnyc具备完整重同步(full resynchronization)和部分重同步(partial resynchronization)。</p> <p>其中，<b>完整重同步</b>和<code>sync</code>的首次同步是一致的，通过主服务器生成RDB文件进行全量数据的同步，如果存在多个从服务器，主服务器仅会生成一份RDB文件，分别同步给各个从服务器。<b>部分重同步</b>则解决了<code>sync</code>断开重连的问题，当断开重连后，主服务器在条件允许的前提下，仅会发送断开期间的写命令。<b>部分重同步</b>的主要实现由以下三部分组成：</p> <ul> <li>主服务器的复制偏移量(replication offset)和从服务器的复制偏移量</li> <li>主服务器的复制积压缓冲区(replication backlogs)</li> <li>服务器的运行ID(run ID)</li> </ul> <h4 id="复制偏移量">复制偏移量</h4> <p>主服务器记录的是自己发给从服务器的偏移量，从服务器记录的是自己接受到的数据偏移量。比如：当前主从服务器的偏移量均为100，在有新的写入命令后，主服务器的偏移量变成了110，而从服务器的是100，此时会有短暂的不一致，待主服务器将新写入命令同步给从服务器后，从服务器的偏移量会变更为110，此时主从服务器又是保持一致的数据了。</p> <h4 id="复制积压缓冲区">复制积压缓冲区</h4> <p>一个固定长度的先进先出队列，默认1M，可通过配置repl_backlog_size调整其大小。当收到一条写入命令，除了发给从服务器外，还会将命令写入到复制积压缓冲区一份。</p> <p><img decoding="async" src="https://img2022.cnblogs.com/blog/781971/202204/781971-20220423143535347-1161526671.png" alt="Redis主从同步详解"></p> <p>当从服务器A与主服务器断开后，中间的写入命令会无法同步给从服务器A，之后，重连后，从服务器会将其复制偏移量告知主服务器，如果该偏移量还在复制积压缓冲区中，则直接将复制积压缓冲区该偏移量后的命令发送给从服务器。</p> <h4 id="服务器的运行id">服务器的运行ID</h4> <p>每个redis实例在启动时候，都会随机生成一个长度为40的唯一字符串来标识当前运行的redis节点。当从服务器对主服务器进行首次复制时，则将自己的runID发送给从服务器，从服务器会将这个ID保存起来。当从服务器与主服务器断开后重连时，会向主服务器发送当前存储的runID，主服务器收到后，会判断与当前自己的runID是否一致，如果不一致，则进行全量复制；如果一致，则判断复制偏移量是否还在复制积压缓冲区中，如果还在，则进行部分重同步。</p> <h4 id="psync命令">psync命令</h4> <p><code>psync &lt;runId&gt; &lt;offset&gt;</code></p> <p>首次发送时为<code>psync ? -1</code>，之后发送的为上次master的runID和当前的复制偏移量。</p> <h4 id="缺陷-1">缺陷</h4> <p>由于每次实例重启都会重新生成runID，或者发生故障迁移后，新Master的runId必然与上一次的不一致，仍会导致完整重同步。</p> <h4 id="40版本以后的优化">4.0版本以后的优化</h4> <p>解决了psnyc的缺陷，简称：psync2</p> <h5 id="第一种情况redis重启">第一种情况：redis重启</h5> <p>第一步，在redis关闭时，通过shutdown save,都会调用rdbSaveInfoAuxFields函数，把当前实例的repl-id和repl-offset保存到RDB文件中。</p> <p>第二步，重启后加载RDB文件中的复制信息。把其中repl_id和repl_offset加载到实例中，分别赋给master_replid和master_repl_offset两个变量值。</p> <blockquote> <p>当从库开启了AOF持久化，redis加载顺序发生变化优先加载AOF文件，但是由于aof文件中没有复制信息，所以导致重启后从实例依旧使用全量复制！</p> </blockquote> <p>第三步：向主库上报复制信息，判断是否进行部分同步。</p> <ul> <li>从实例向主库上报master_replid与主实例的master_replid1或replid2有一个相等，用于判断主从未发生改变；</li> <li>从实例上报的master_repl_offset+1字节，还存在于主实例的复制积压缓冲区中，用于判断从库丢失部分是否在复制缓冲区中；</li> </ul> <h5 id="第二种情况-故障切换">第二种情况: 故障切换</h5> <p>redis从库默认开始复制积压缓冲区，方便从库切换为主库，其他从库可以直接从master节点获取缺失的命令。通过两组replId实现。</p> <p>第一组：master_replid和master_repl_offset：如果redis是主实例，则表示为自己的replid和复制偏移量； 如果redis是从实例，则表示为自己主实例的replid1和同步主实例的复制偏移量。</p> <p>第二组：master_replid2和second_repl_offset：无论主从，都表示自己上次主实例repid1和复制偏移量；用于兄弟实例或级联复制，主库故障切换psync。</p> <p>判断是否使用部分复制条件：如果从库提供的master_replid与master的replid不同，且与master的replid2不同，或同步速度快于master； 就必须进行全量复制，否则执行部分复制。</p> <p>公众号：慢行的蜗牛</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-32113.htm">ZooKeeper的java客户端api的监听功能代码示范</a></p>
+                                        <p>下一个：<a href="/news/article-32583.htm">同安区宠物店有哪些厦门（厦门同安宠物医院）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-22-clash-nyanpasu.htm" title="「12月22日」最高速度20.8M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「12月22日」最高速度20.8M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-9-clash-nyanpasu-node.htm" title="「11月9日」最高速度18.1M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「11月9日」最高速度18.1M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-15-free-high-speed-nodes.htm" title="「8月15日」最高速度20.7M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「8月15日」最高速度20.7M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-4-linux-clash-nyanpasu.htm" title="「9月4日」最高速度20.6M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「9月4日」最高速度20.6M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-22759.htm" title="kafka系列SpringBoot 中使用@KafkaListener详解与使用">kafka系列SpringBoot 中使用@KafkaListener详解与使用</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-6-node-share-links.htm" title="「10月6日」最高速度21.7M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「10月6日」最高速度21.7M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-25999.htm" title="天津宠物救助站领养宠物多少钱一只（天津宠物救助站领养宠物多少钱一只猫）">天津宠物救助站领养宠物多少钱一只（天津宠物救助站领养宠物多少钱一只猫）</a></li>
+                        <li class="py-2"><a href="/news/article-21381.htm" title="猫疫苗三针间隔时间（猫疫苗三针间隔时间多久）">猫疫苗三针间隔时间（猫疫苗三针间隔时间多久）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-18-node-share.htm" title="「11月18日」最高速度23M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「11月18日」最高速度23M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-7-clash-nyanpasu-node.htm" title="「8月7日」最高速度18.3M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「8月7日」最高速度18.3M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Us Section -->
+    </main><!-- End #main -->
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+        <div class="container mt-4">
+            <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                Clash Nyanpasu Node节点订阅站 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <!-- End Footer -->
+    <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <div id="preloader"></div>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/clashnyanpasunode/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/purecounter/purecounter_vanilla.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/swiper/swiper-bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/php-email-form/validate.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/clashnyanpasunode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
