@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://clashnyanpasunode.github.io/news/article-40324.htm" />
@@ -8,16 +8,43 @@
     <title>Java-多线程-线程安全-同步代码块</title>
         <meta name="description" content="在多个线程都在争抢公共资源的时候，可能会出现抢到公共资源后，还没有完成所有操作就被其他线程抢走了，这可能导致程序运行结果不符合我们的意愿的情况 例如示例所示，在没有加同步代码块的时候，可能出现买到重复" />
         <link rel="icon" href="/assets/website/img/clashnyanpasunode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Clash Nyanpasu Node节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashnyanpasunode.github.io/news/article-40324.htm" />
+    <meta property="og:site_name" content="Clash Nyanpasu Node节点订阅站" />
+    <meta property="og:title" content="Java-多线程-线程安全-同步代码块" />
+    <meta property="og:image" content="https://clashnyanpasunode.github.io/uploads/20240728-1/27f38b5794d78cbd262fa6c66a6ad8e2.webp" />
+        <meta property="og:release_date" content="2025-01-14T07:33:59" />
+    <meta property="og:updated_time" content="2025-01-14T07:33:59" />
+        <meta property="og:description" content="在多个线程都在争抢公共资源的时候，可能会出现抢到公共资源后，还没有完成所有操作就被其他线程抢走了，这可能导致程序运行结果不符合我们的意愿的情况 例如示例所示，在没有加同步代码块的时候，可能出现买到重复" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Java-多线程-线程安全-同步代码块">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <!-- Vendor CSS Files -->
-    <link href="__ADDON__/js/frontend/clashnyanpasunode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/clashnyanpasunode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/clashnyanpasunode/aos/aos.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/clashnyanpasunode/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/clashnyanpasunode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashnyanpasunode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashnyanpasunode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashnyanpasunode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashnyanpasunode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashnyanpasunode/swiper/swiper-bundle.min.css" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="/assets/website/css/clashnyanpasunode/main.css" rel="stylesheet">
     <!-- Google tag (gtag.js) -->
@@ -97,16 +124,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-12-17-linux-clash-nyanpasu.htm" title="「12月17日」最高速度19.5M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「12月17日」最高速度19.5M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-27-free-high-speed-nodes.htm" title="「11月27日」最高速度20.5M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「11月27日」最高速度20.5M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-5-linux-clash-nyanpasu.htm" title="「1月5日」最高速度18.1M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「1月5日」最高速度18.1M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-37862.htm" title="三国杀换武将的武将（三国杀武将转换技）">三国杀换武将的武将（三国杀武将转换技）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-13-free-node-subscribe.htm" title="「1月13日」最高速度20.4M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「1月13日」最高速度20.4M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-30-free-node-subscribe-links.htm" title="「12月30日」最高速度19.2M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「12月30日」最高速度19.2M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-24152.htm" title="lambda表达式里的anyMatch函数">lambda表达式里的anyMatch函数</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-10-clash-nyanpasu.htm" title="「10月10日」最高速度18.8M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「10月10日」最高速度18.8M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-11-free-node-subscribe.htm" title="「1月11日」最高速度19.9M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「1月11日」最高速度19.9M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-15-free-clash-nyanpasu.htm" title="「1月15日」最高速度18.9M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「1月15日」最高速度18.9M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-25079.htm" title="动物疫苗证在哪里办的啊（动物疫苗证是什么样的）">动物疫苗证在哪里办的啊（动物疫苗证是什么样的）</a></li>
+                        <li class="py-2"><a href="/news/article-28793.htm" title="广州哪里有领养猫咪的地方（广州哪里有领养猫咪的地方）">广州哪里有领养猫咪的地方（广州哪里有领养猫咪的地方）</a></li>
+                        <li class="py-2"><a href="/news/article-44301.htm" title="开宠物粮工厂需要办什么手续呢 开宠物粮工厂需要办什么手续呢视频">开宠物粮工厂需要办什么手续呢 开宠物粮工厂需要办什么手续呢视频</a></li>
+                        <li class="py-2"><a href="/news/article-28330.htm" title="promise与async/await的使用及区别">promise与async/await的使用及区别</a></li>
+                        <li class="py-2"><a href="/news/article-39841.htm" title="宠物寄养一般怎么收费猫（一般寄养猫咪到宠物店需要多少钱一个月）">宠物寄养一般怎么收费猫（一般寄养猫咪到宠物店需要多少钱一个月）</a></li>
+                        <li class="py-2"><a href="/news/article-41819.htm" title="猪饲料厂加盟（猪饲料加盟店）">猪饲料厂加盟（猪饲料加盟店）</a></li>
+                        <li class="py-2"><a href="/news/article-19556.htm" title="小型狗粮生产设备厂家（小型狗粮加工设备）">小型狗粮生产设备厂家（小型狗粮加工设备）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-free-subscribe-node.htm" title="「11月10日」最高速度21.2M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「11月10日」最高速度21.2M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-37366.htm" title="广州宠物领养网免费吗多少钱（广州宠物狗领养网站）">广州宠物领养网免费吗多少钱（广州宠物狗领养网站）</a></li>
+                        <li class="py-2"><a href="/news/article-28331.htm" title="南京免费领养宠物的平台有哪些（南京免费领养猫）">南京免费领养宠物的平台有哪些（南京免费领养猫）</a></li>
                     </ul>
     </div>
 </div>
@@ -118,16 +145,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">48</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

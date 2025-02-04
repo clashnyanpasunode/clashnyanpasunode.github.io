@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://clashnyanpasunode.github.io/news/article-22760.htm" />
@@ -8,16 +8,43 @@
     <title>Golang 实现 Redis(10): 本地原子性事务_在线工具</title>
         <meta name="description" content="为了支持多个命令的原子性执行 Redis 提供了事务机制。 Redis 官方文档中称事务带有以下两个重要的保证：  事务是一个单独的隔离操作：事务中的所有命令都会序列化、按顺序地执行。事务在执行的过程" />
         <link rel="icon" href="/assets/website/img/clashnyanpasunode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Clash Nyanpasu Node节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashnyanpasunode.github.io/news/article-22760.htm" />
+    <meta property="og:site_name" content="Clash Nyanpasu Node节点订阅站" />
+    <meta property="og:title" content="Golang 实现 Redis(10): 本地原子性事务_在线工具" />
+    <meta property="og:image" content="https://clashnyanpasunode.github.io/uploads/20240728-1/f53031c6c5023f1d3b8764718feb2053.webp" />
+        <meta property="og:release_date" content="2024-12-08T07:14:21" />
+    <meta property="og:updated_time" content="2024-12-08T07:14:21" />
+        <meta property="og:description" content="为了支持多个命令的原子性执行 Redis 提供了事务机制。 Redis 官方文档中称事务带有以下两个重要的保证：  事务是一个单独的隔离操作：事务中的所有命令都会序列化、按顺序地执行。事务在执行的过程" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Golang 实现 Redis(10): 本地原子性事务_在线工具">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <!-- Vendor CSS Files -->
-    <link href="__ADDON__/js/frontend/clashnyanpasunode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/clashnyanpasunode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/clashnyanpasunode/aos/aos.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/clashnyanpasunode/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/clashnyanpasunode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashnyanpasunode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashnyanpasunode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashnyanpasunode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashnyanpasunode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashnyanpasunode/swiper/swiper-bundle.min.css" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="/assets/website/css/clashnyanpasunode/main.css" rel="stylesheet">
     <!-- Google tag (gtag.js) -->
@@ -97,16 +124,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-22760.htm" title="Golang 实现 Redis(10): 本地原子性事务_在线工具">Golang 实现 Redis(10): 本地原子性事务_在线工具</a></li>
-                        <li class="py-2"><a href="/news/article-30199.htm" title="Mac上解决dose not contain the JNI_CreateJavaVM symbol">Mac上解决dose not contain the JNI_CreateJavaVM symbol</a></li>
-                        <li class="py-2"><a href="/news/article-20013.htm" title="长期养猫的危害（长期养猫的人对健康有什么影响）">长期养猫的危害（长期养猫的人对健康有什么影响）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-13-clash-nyanpasu-node.htm" title="「9月13日」最高速度22.1M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「9月13日」最高速度22.1M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-8-free-clash-nyanpasu.htm" title="「12月8日」最高速度21.6M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「12月8日」最高速度21.6M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-25-node-share-links.htm" title="「8月25日」最高速度18.9M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「8月25日」最高速度18.9M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-4-linux-clash-nyanpasu.htm" title="「8月4日」最高速度21.7M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「8月4日」最高速度21.7M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-8-free-node-subscribe-links.htm" title="「9月8日」最高速度18.7M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「9月8日」最高速度18.7M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-7-clash-nyanpasu-node.htm" title="「9月7日」最高速度20.1M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「9月7日」最高速度20.1M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-20-free-node-subscribe.htm" title="「10月20日」最高速度21.4M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「10月20日」最高速度21.4M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-29732.htm" title="上海宠物繁殖基地电话（上海宠物繁育基地）">上海宠物繁殖基地电话（上海宠物繁育基地）</a></li>
+                        <li class="py-2"><a href="/news/article-25999.htm" title="天津宠物救助站领养宠物多少钱一只（天津宠物救助站领养宠物多少钱一只猫）">天津宠物救助站领养宠物多少钱一只（天津宠物救助站领养宠物多少钱一只猫）</a></li>
+                        <li class="py-2"><a href="/news/article-38849.htm" title="动物疫苗价格排行榜前十名有哪些种类图片大全（动物疫苗多少钱一支）">动物疫苗价格排行榜前十名有哪些种类图片大全（动物疫苗多少钱一支）</a></li>
+                        <li class="py-2"><a href="/news/article-30200.htm" title="vue中this.$http.post()跨域和请求参数丢失的解决_vue.js">vue中this.$http.post()跨域和请求参数丢失的解决_vue.js</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-10-clash-nyanpasu-node.htm" title="「12月10日」最高速度20.6M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「12月10日」最高速度20.6M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-42308.htm" title="宠物店宠物寄养协议（宠物店寄养协议有法律效力吗）">宠物店宠物寄养协议（宠物店寄养协议有法律效力吗）</a></li>
+                        <li class="py-2"><a href="/news/article-21844.htm" title="猫一般养多久认主人（猫养多久才认主人）">猫一般养多久认主人（猫养多久才认主人）</a></li>
+                        <li class="py-2"><a href="/news/article-46278.htm" title="流浪狗领养平台（流浪狗领养平台电话）">流浪狗领养平台（流浪狗领养平台电话）</a></li>
+                        <li class="py-2"><a href="/news/article-47748.htm" title="动物医院连锁店有哪些名字（动物医院有限公司）">动物医院连锁店有哪些名字（动物医院有限公司）</a></li>
+                        <li class="py-2"><a href="/news/article-46770.htm" title="上海宠物领养平台可靠吗现在（上海地区宠物领养）">上海宠物领养平台可靠吗现在（上海地区宠物领养）</a></li>
                     </ul>
     </div>
 </div>
@@ -118,25 +145,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

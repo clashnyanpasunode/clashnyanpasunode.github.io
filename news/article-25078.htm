@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://clashnyanpasunode.github.io/news/article-25078.htm" />
@@ -8,16 +8,43 @@
     <title>领域驱动模型DDD使用Saga管理事务</title>
         <meta name="description" content="虽然一直说想写一篇关于Saga模式，在多次尝试后不得不承认这玩意儿的仿制代码真不是我一个菜鸟就能完成的，所以还是妥协般地引用现成的Eventuate Tram Saga框架（虽然我对它一直很反感）和S" />
         <link rel="icon" href="/assets/website/img/clashnyanpasunode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Clash Nyanpasu Node节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashnyanpasunode.github.io/news/article-25078.htm" />
+    <meta property="og:site_name" content="Clash Nyanpasu Node节点订阅站" />
+    <meta property="og:title" content="领域驱动模型DDD使用Saga管理事务" />
+    <meta property="og:image" content="https://clashnyanpasunode.github.io/uploads/20240728-1/63d9e7c8eca54ccaab5b2502f44f36e7.webp" />
+        <meta property="og:release_date" content="2024-12-13T12:04:08" />
+    <meta property="og:updated_time" content="2024-12-13T12:04:08" />
+        <meta property="og:description" content="虽然一直说想写一篇关于Saga模式，在多次尝试后不得不承认这玩意儿的仿制代码真不是我一个菜鸟就能完成的，所以还是妥协般地引用现成的Eventuate Tram Saga框架（虽然我对它一直很反感）和S" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="领域驱动模型DDD使用Saga管理事务">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <!-- Vendor CSS Files -->
-    <link href="__ADDON__/js/frontend/clashnyanpasunode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/clashnyanpasunode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/clashnyanpasunode/aos/aos.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/clashnyanpasunode/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/clashnyanpasunode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashnyanpasunode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashnyanpasunode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashnyanpasunode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashnyanpasunode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashnyanpasunode/swiper/swiper-bundle.min.css" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="/assets/website/css/clashnyanpasunode/main.css" rel="stylesheet">
     <!-- Google tag (gtag.js) -->
@@ -97,16 +124,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-10-25-linux-clash-nyanpasu.htm" title="「10月25日」最高速度21.2M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「10月25日」最高速度21.2M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-32584.htm" title="成都宠物疫苗批发 成都宠物疫苗批发市场">成都宠物疫苗批发 成都宠物疫苗批发市场</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-14-clash-nyanpasu.htm" title="「9月14日」最高速度19.8M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「9月14日」最高速度19.8M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-33054.htm" title="免费领养宠物正规网站平台有哪些好用（免费领养宠物的app有哪些）">免费领养宠物正规网站平台有哪些好用（免费领养宠物的app有哪些）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-12-linux-clash-nyanpasu.htm" title="「11月12日」最高速度18.8M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「11月12日」最高速度18.8M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-24614.htm" title="Spring Boot教程 | 第八篇：Spring Boot整合knife4j（swagger-bootstrap-ui）实现自动API文档">Spring Boot教程 | 第八篇：Spring Boot整合knife4j（swagger-bootstrap-ui）实现自动API文档</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-26-free-clash-nyanpasu.htm" title="「9月26日」最高速度20.1M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「9月26日」最高速度20.1M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-20-node-share.htm" title="「9月20日」最高速度19.5M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「9月20日」最高速度19.5M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-1-node-share.htm" title="「12月1日」最高速度18.1M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「12月1日」最高速度18.1M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-28331.htm" title="南京免费领养宠物的平台有哪些（南京免费领养猫）">南京免费领养宠物的平台有哪些（南京免费领养猫）</a></li>
+                        <li class="py-2"><a href="/news/article-37365.htm" title="仓鼠皮癣怎么治（仓鼠皮癣会自愈吗）">仓鼠皮癣怎么治（仓鼠皮癣会自愈吗）</a></li>
+                        <li class="py-2"><a href="/news/article-21381.htm" title="猫疫苗三针间隔时间（猫疫苗三针间隔时间多久）">猫疫苗三针间隔时间（猫疫苗三针间隔时间多久）</a></li>
+                        <li class="py-2"><a href="/news/article-22302.htm" title="ThreadLocal原理及使用场景">ThreadLocal原理及使用场景</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-25-linux-clash-nyanpasu.htm" title="「1月25日」最高速度19.4M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「1月25日」最高速度19.4M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-33538.htm" title="VUE前端开发环境版本查看命令方法详解">VUE前端开发环境版本查看命令方法详解</a></li>
+                        <li class="py-2"><a href="/news/article-32583.htm" title="同安区宠物店有哪些厦门（厦门同安宠物医院）">同安区宠物店有哪些厦门（厦门同安宠物医院）</a></li>
+                        <li class="py-2"><a href="/news/article-41818.htm" title="动物防疫疫苗中标公告公示几天完成（动物防疫疫苗中标公告公示几天完成的）">动物防疫疫苗中标公告公示几天完成（动物防疫疫苗中标公告公示几天完成的）</a></li>
+                        <li class="py-2"><a href="/news/article-19099.htm" title="如何在MySQL中使用复合INTERVAL单元？">如何在MySQL中使用复合INTERVAL单元？</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-3-node-share-links.htm" title="「1月3日」最高速度21.2M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「1月3日」最高速度21.2M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-28-free-clash-nyanpasu.htm" title="「11月28日」最高速度19.2M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接">「11月28日」最高速度19.2M/S，2024年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -118,25 +145,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>
