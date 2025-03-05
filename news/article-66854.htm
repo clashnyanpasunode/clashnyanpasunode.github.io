@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashnyanpasunode.github.io/news/article-66854.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>CSS3盒子与DIV布局</title>
+        <meta name="description" content="CSS3中提出了盒子模型和新增盒子模型来完成对元素的直接定位，即能够为页面元素定义边框，并修饰内容距离，。从而优化文本内容的显示效果。  div与span区别 在包含方面div和span标记的作用相同" />
+        <link rel="icon" href="/assets/website/img/clashnyanpasunode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Clash Nyanpasu Node节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashnyanpasunode.github.io/news/article-66854.htm" />
+    <meta property="og:site_name" content="Clash Nyanpasu Node节点订阅站" />
+    <meta property="og:title" content="CSS3盒子与DIV布局" />
+    <meta property="og:image" content="https://clashnyanpasunode.github.io/uploads/20240728-1/726ba85d8b3b32f0cf8b8a48851cb1ec.webp" />
+        <meta property="og:release_date" content="2025-03-04T10:13:15" />
+    <meta property="og:updated_time" content="2025-03-04T10:13:15" />
+        <meta property="og:description" content="CSS3中提出了盒子模型和新增盒子模型来完成对元素的直接定位，即能够为页面元素定义边框，并修饰内容距离，。从而优化文本内容的显示效果。  div与span区别 在包含方面div和span标记的作用相同" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="CSS3盒子与DIV布局">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/clashnyanpasunode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashnyanpasunode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashnyanpasunode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashnyanpasunode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashnyanpasunode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/clashnyanpasunode/main.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FW6BH5KXK9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FW6BH5KXK9');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- ======= Header ======= -->
+    <header id="header" class="header d-flex align-items-center">
+        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+            <a href="/" class="logo d-flex align-items-center xcblog-blog-logo">
+                                <span><p>ClashNyanpasu<span>Node</span></p></span>
+                            </a>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                    </ul>
+            </nav><!-- .navbar -->
+            <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+            <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+        </div>
+    </header><!-- End Header -->
+    <!-- End Header -->
+    <!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs ======= -->
+        <div class="breadcrumbs">
+            <div class="page-header d-flex align-items-center" style="background-image: url('');">
+                <div class="container position-relative">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-6 text-center">
+                            <h1>CSS3盒子与DIV布局</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav>
+                <div class="container">
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </nav>
+        </div><!-- End Breadcrumbs -->
+        <!-- ======= About Us Section ======= -->
+        <section id="about" class="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-md-9 xcblog-blog-list">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>CSS3中提出了盒子模型和新增盒子模型来完成对元素的直接定位，即能够为页面元素定义边框，并修饰内容距离，。从而优化文本内容的显示效果。</p> </h1> <h2><a id="divspan_2" rel="nofollow"></a>div与span区别</h2> <p>在包含方面div和span标记的作用相同。div和span标记二者的区别是，div是一个块级元素，其包含的元素会自动换行。span标记是一个行内标记，其前后都不会发生换行。div标记可以包含span标记元素，但是span标记一般不包含div标记。</p> </h1> <h2><a id="_5" rel="nofollow"></a>盒子模型</h2> <p>所以的页面元素都包含在一个矩形框内，称为盒子。盒子描述了元素及其属性在页面布局中所占的空间大小，因此盒子是可以影响其他元素的位置及大小。盒子模型包含如下四部分：</p> <ol> <li>content（内容）：是盒子模型中必需的一部分，内容可以是文字，图片等元素。</li> <li>padding（空白）：也称内边距或补白，用来设置内容和边框直接的距离。</li> <li>border（边框）：可以设置内容边框线的粗细，颜色和样式等。</li> <li>margin（边界）：外边界，用来设置内容与内容之间的距离。</li> </ol> <h2><a id="border_11" rel="nofollow"></a>border边框</h2> <p>border边框是内边框和外边框的分界线，可以分离不同的HTML元素，border的外围是元素的最外围。</p> <h2><a id="padding_13" rel="nofollow"></a>padding内边距</h2> <p>padding属性定义内容与边框之间的距离，即内边距的距离。<br /> 语法格式如下：</p> <pre><code>padding：length</code></pre> <h2><a id="margin_20" rel="nofollow"></a>margin外边距</h2> <p>margin边界用来设置页面元素和元素之间的距离，即定义元素周围的空间范围。语法格式如下：</p> <pre><code>margin：auto|length</code></pre> </h1> <p>新增属性如下表：</p> <table> <thead> <tr> <th>属性</th> <th>说明</th> </tr> </thead> <tbody> <tr> <td>box-orient</td> <td>定义盒子分布的坐标轴</td> </tr> <tr> <td>box-align</td> <td>定义子元素在盒子内垂直方向上的空间分配方式</td> </tr> <tr> <td>box-direction</td> <td>定义盒子的显示顺序</td> </tr> <tr> <td>box-flex</td> <td>定义子元素在盒子内的自适应尺寸</td> </tr> <tr> <td>box-flex-group</td> <td>定义自适应子元素群组</td> </tr> <tr> <td>box-lines</td> <td>定义子元素分布显示</td> </tr> <tr> <td>box-ordinal-group</td> <td>定义子元素在盒子内的显示位置</td> </tr> <tr> <td>box-pack</td> <td>定义子元素在盒子内的水平方向上的空间分配方式</td> </tr> </tbody> </table> <h2><a id="boxorient_38" rel="nofollow"></a>盒子布局取向box-orient</h2> <p>该属性用于定义盒子元素内部的流动布局方向。<br /> 语法格式如下：</p> <pre><code>box-orient:horizontal|vertical|inline-axis|block-axis|inherit</code></pre> <p>参数含义如下表：</p> <table> <thead> <tr> <th>属性值</th> <th>说明</th> </tr> </thead> <tbody> <tr> <td>horizontal</td> <td>盒子元素从左到右在一条水平线上显示他的子元素</td> </tr> <tr> <td>vertical</td> <td>盒子元素从上到下在一条垂直线上显示他的子元素</td> </tr> <tr> <td>inline-axis</td> <td>盒子元素沿着内联轴显示他的子元素</td> </tr> <tr> <td>block-axis</td> <td>盒子元素沿着块轴显示他的子元素</td> </tr> </tbody> </table> <h2><a id="boxdirection_52" rel="nofollow"></a>盒子布局顺序box-direction</h2> <p>该属性是用来确定子元素的排列顺序，也可以说是内部元素的流动顺序。语法格式如下：</p> <pre><code>box-direction：normal|reverse|inherit</code></pre> <p>参数值说明如下表：</p> <table> <thead> <tr> <th>属性值</th> <th>说明</th> </tr> </thead> <tbody> <tr> <td>normal</td> <td>正常显示顺序，如果盒子元素的box-orient属性值为horizontal，则包含的子元素按照从左到右的顺序显示，即每个子元素的左边总是靠近前一个子元素的右边，如果盒子元素的box-orient属性值为vertical，则其包含的子元素按照从上到下的顺序显示</td> </tr> <tr> <td>reverse</td> <td>反向显示，盒子所包含的子元素的显示顺序将与normal相反</td> </tr> <tr> <td>inherit</td> <td>继承上级的显示顺序</td> </tr> </tbody> </table> <h2><a id="boxordinalgroup_65" rel="nofollow"></a>盒子布局位置box-ordinal-group</h2> <p>该属性设置盒子中每个子元素在盒子中的具体位置。语法格式如下：</p> <pre><code>box-ordinal-group：&lt;integer&gt;</code></pre> <h2><a id="boxflex_71" rel="nofollow"></a>盒子弹性空间box-flex</h2> <p>该属性能够灵活的控制子元素在盒子中的显示空间，显示空间包括子元素的宽度和高度，而不是子元素所在栏目的宽度，也可以说是子元素在盒子中所占的面积。语法格式如下：</p> <pre><code>box-flex：&lt;number&gt;</code></pre> <h2><a id="boxpackboxalign_77" rel="nofollow"></a>管理盒子空间box-pack和box-align</h2> <p>box-pack属性可以用来设置子容器在水平轴上的空间分配方式，语法格式如下：</p> <pre><code>box-pack：start|end|center|justify</code></pre> <p>参数说明如下表：</p> <table> <thead> <tr> <th>属性值</th> <th>说明</th> </tr> </thead> <tbody> <tr> <td>start</td> <td>所有子容器都分布在父容器的左侧，右侧留空</td> </tr> <tr> <td>end</td> <td>所有子容器都分布在父容器的右侧，左侧留空</td> </tr> <tr> <td>justify</td> <td>所有子容器平均分配（默认值）</td> </tr> <tr> <td>center</td> <td>平均分配父容器剩余的空间（能压缩子容器的大小，并且有全局居中的效果）</td> </tr> </tbody> </table> <p>box-align属性用于管理子容器在竖轴上的空间分配方式，语法格式如下：</p> <pre><code>box-align：start|end|center|baseline|stretch</code></pre> <p>属性值说明如下表：</p> <table> <thead> <tr> <th>属性值</th> <th>说明</th> </tr> </thead> <tbody> <tr> <td>start</td> <td>子容器从父容器顶部开始排列，富裕空间显示在盒子底部</td> </tr> <tr> <td>end</td> <td>子容器从父容器底部开始排列，富裕空间显示在盒子顶部</td> </tr> <tr> <td>center</td> <td>子容器横向局中，富裕空间在子容器的两侧分配，上面一半，下面一半</td> </tr> <tr> <td>baseline</td> <td>所有盒子沿着他们的基线排列，富余的空间可前可后显示</td> </tr> <tr> <td>sretch</td> <td>每个子元素的高度被调整到适合的盒子高度显示，即所有的子容器和父容器保持同一高度</td> </tr> </tbody> </table> <h2><a id="boxlines_105" rel="nofollow"></a>空间溢出管理box-lines</h2> <p>该属性用来避免空间溢出的问题。<br /> 语法格式如下：</p> <pre><code>box-lines：single|multiple</code></pre> <p>single表示子元素都单行或单列显示；multiple表示子元素可以多行货=或多列显示。</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-66853.htm">Pandas之数据读取与储存</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-61351.htm" title="vue 详情页返回列表，过滤查询条件保留">vue 详情页返回列表，过滤查询条件保留</a></li>
+                        <li class="py-2"><a href="/news/article-60184.htm" title="C++的命名空间">C++的命名空间</a></li>
+                        <li class="py-2"><a href="/news/article-39841.htm" title="宠物寄养一般怎么收费猫（一般寄养猫咪到宠物店需要多少钱一个月）">宠物寄养一般怎么收费猫（一般寄养猫咪到宠物店需要多少钱一个月）</a></li>
+                        <li class="py-2"><a href="/news/article-56198.htm" title="济南宠物狗领养中心地址在哪里（济南宠物领养济南宠物赠送）">济南宠物狗领养中心地址在哪里（济南宠物领养济南宠物赠送）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-28-free-node-subscribe.htm" title="「1月28日」最高速度22.1M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「1月28日」最高速度22.1M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-27-node-share-links.htm" title="「1月27日」最高速度18.7M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「1月27日」最高速度18.7M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-56752.htm" title="动物疫苗价格表图片大全及价格图 动物疫苗价格表图片大全及价格图">动物疫苗价格表图片大全及价格图 动物疫苗价格表图片大全及价格图</a></li>
+                        <li class="py-2"><a href="/news/article-40324.htm" title="Java-多线程-线程安全-同步代码块">Java-多线程-线程安全-同步代码块</a></li>
+                        <li class="py-2"><a href="/news/article-40827.htm" title="SpringMVC访问静态资源的三种方式">SpringMVC访问静态资源的三种方式</a></li>
+                        <li class="py-2"><a href="/news/article-58565.htm" title="动物医院怎么用英语怎么说 动物医院用英语怎么说?">动物医院怎么用英语怎么说 动物医院用英语怎么说?</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Us Section -->
+    </main><!-- End #main -->
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+        <div class="container mt-4">
+            <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                Clash Nyanpasu Node节点订阅站 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <!-- End Footer -->
+    <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <div id="preloader"></div>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/clashnyanpasunode/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/purecounter/purecounter_vanilla.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/swiper/swiper-bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/php-email-form/validate.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/clashnyanpasunode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
