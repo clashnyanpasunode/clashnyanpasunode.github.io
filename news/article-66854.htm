@@ -113,6 +113,7 @@
                   				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>CSS3中提出了盒子模型和新增盒子模型来完成对元素的直接定位，即能够为页面元素定义边框，并修饰内容距离，。从而优化文本内容的显示效果。</p> </h1> <h2><a id="divspan_2" rel="nofollow"></a>div与span区别</h2> <p>在包含方面div和span标记的作用相同。div和span标记二者的区别是，div是一个块级元素，其包含的元素会自动换行。span标记是一个行内标记，其前后都不会发生换行。div标记可以包含span标记元素，但是span标记一般不包含div标记。</p> </h1> <h2><a id="_5" rel="nofollow"></a>盒子模型</h2> <p>所以的页面元素都包含在一个矩形框内，称为盒子。盒子描述了元素及其属性在页面布局中所占的空间大小，因此盒子是可以影响其他元素的位置及大小。盒子模型包含如下四部分：</p> <ol> <li>content（内容）：是盒子模型中必需的一部分，内容可以是文字，图片等元素。</li> <li>padding（空白）：也称内边距或补白，用来设置内容和边框直接的距离。</li> <li>border（边框）：可以设置内容边框线的粗细，颜色和样式等。</li> <li>margin（边界）：外边界，用来设置内容与内容之间的距离。</li> </ol> <h2><a id="border_11" rel="nofollow"></a>border边框</h2> <p>border边框是内边框和外边框的分界线，可以分离不同的HTML元素，border的外围是元素的最外围。</p> <h2><a id="padding_13" rel="nofollow"></a>padding内边距</h2> <p>padding属性定义内容与边框之间的距离，即内边距的距离。<br /> 语法格式如下：</p> <pre><code>padding：length</code></pre> <h2><a id="margin_20" rel="nofollow"></a>margin外边距</h2> <p>margin边界用来设置页面元素和元素之间的距离，即定义元素周围的空间范围。语法格式如下：</p> <pre><code>margin：auto|length</code></pre> </h1> <p>新增属性如下表：</p> <table> <thead> <tr> <th>属性</th> <th>说明</th> </tr> </thead> <tbody> <tr> <td>box-orient</td> <td>定义盒子分布的坐标轴</td> </tr> <tr> <td>box-align</td> <td>定义子元素在盒子内垂直方向上的空间分配方式</td> </tr> <tr> <td>box-direction</td> <td>定义盒子的显示顺序</td> </tr> <tr> <td>box-flex</td> <td>定义子元素在盒子内的自适应尺寸</td> </tr> <tr> <td>box-flex-group</td> <td>定义自适应子元素群组</td> </tr> <tr> <td>box-lines</td> <td>定义子元素分布显示</td> </tr> <tr> <td>box-ordinal-group</td> <td>定义子元素在盒子内的显示位置</td> </tr> <tr> <td>box-pack</td> <td>定义子元素在盒子内的水平方向上的空间分配方式</td> </tr> </tbody> </table> <h2><a id="boxorient_38" rel="nofollow"></a>盒子布局取向box-orient</h2> <p>该属性用于定义盒子元素内部的流动布局方向。<br /> 语法格式如下：</p> <pre><code>box-orient:horizontal|vertical|inline-axis|block-axis|inherit</code></pre> <p>参数含义如下表：</p> <table> <thead> <tr> <th>属性值</th> <th>说明</th> </tr> </thead> <tbody> <tr> <td>horizontal</td> <td>盒子元素从左到右在一条水平线上显示他的子元素</td> </tr> <tr> <td>vertical</td> <td>盒子元素从上到下在一条垂直线上显示他的子元素</td> </tr> <tr> <td>inline-axis</td> <td>盒子元素沿着内联轴显示他的子元素</td> </tr> <tr> <td>block-axis</td> <td>盒子元素沿着块轴显示他的子元素</td> </tr> </tbody> </table> <h2><a id="boxdirection_52" rel="nofollow"></a>盒子布局顺序box-direction</h2> <p>该属性是用来确定子元素的排列顺序，也可以说是内部元素的流动顺序。语法格式如下：</p> <pre><code>box-direction：normal|reverse|inherit</code></pre> <p>参数值说明如下表：</p> <table> <thead> <tr> <th>属性值</th> <th>说明</th> </tr> </thead> <tbody> <tr> <td>normal</td> <td>正常显示顺序，如果盒子元素的box-orient属性值为horizontal，则包含的子元素按照从左到右的顺序显示，即每个子元素的左边总是靠近前一个子元素的右边，如果盒子元素的box-orient属性值为vertical，则其包含的子元素按照从上到下的顺序显示</td> </tr> <tr> <td>reverse</td> <td>反向显示，盒子所包含的子元素的显示顺序将与normal相反</td> </tr> <tr> <td>inherit</td> <td>继承上级的显示顺序</td> </tr> </tbody> </table> <h2><a id="boxordinalgroup_65" rel="nofollow"></a>盒子布局位置box-ordinal-group</h2> <p>该属性设置盒子中每个子元素在盒子中的具体位置。语法格式如下：</p> <pre><code>box-ordinal-group：&lt;integer&gt;</code></pre> <h2><a id="boxflex_71" rel="nofollow"></a>盒子弹性空间box-flex</h2> <p>该属性能够灵活的控制子元素在盒子中的显示空间，显示空间包括子元素的宽度和高度，而不是子元素所在栏目的宽度，也可以说是子元素在盒子中所占的面积。语法格式如下：</p> <pre><code>box-flex：&lt;number&gt;</code></pre> <h2><a id="boxpackboxalign_77" rel="nofollow"></a>管理盒子空间box-pack和box-align</h2> <p>box-pack属性可以用来设置子容器在水平轴上的空间分配方式，语法格式如下：</p> <pre><code>box-pack：start|end|center|justify</code></pre> <p>参数说明如下表：</p> <table> <thead> <tr> <th>属性值</th> <th>说明</th> </tr> </thead> <tbody> <tr> <td>start</td> <td>所有子容器都分布在父容器的左侧，右侧留空</td> </tr> <tr> <td>end</td> <td>所有子容器都分布在父容器的右侧，左侧留空</td> </tr> <tr> <td>justify</td> <td>所有子容器平均分配（默认值）</td> </tr> <tr> <td>center</td> <td>平均分配父容器剩余的空间（能压缩子容器的大小，并且有全局居中的效果）</td> </tr> </tbody> </table> <p>box-align属性用于管理子容器在竖轴上的空间分配方式，语法格式如下：</p> <pre><code>box-align：start|end|center|baseline|stretch</code></pre> <p>属性值说明如下表：</p> <table> <thead> <tr> <th>属性值</th> <th>说明</th> </tr> </thead> <tbody> <tr> <td>start</td> <td>子容器从父容器顶部开始排列，富裕空间显示在盒子底部</td> </tr> <tr> <td>end</td> <td>子容器从父容器底部开始排列，富裕空间显示在盒子顶部</td> </tr> <tr> <td>center</td> <td>子容器横向局中，富裕空间在子容器的两侧分配，上面一半，下面一半</td> </tr> <tr> <td>baseline</td> <td>所有盒子沿着他们的基线排列，富余的空间可前可后显示</td> </tr> <tr> <td>sretch</td> <td>每个子元素的高度被调整到适合的盒子高度显示，即所有的子容器和父容器保持同一高度</td> </tr> </tbody> </table> <h2><a id="boxlines_105" rel="nofollow"></a>空间溢出管理box-lines</h2> <p>该属性用来避免空间溢出的问题。<br /> 语法格式如下：</p> <pre><code>box-lines：single|multiple</code></pre> <p>single表示子元素都单行或单列显示；multiple表示子元素可以多行货=或多列显示。</p> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-66853.htm">Pandas之数据读取与储存</a></p>
+                                        <p>下一个：<a href="/news/article-67483.htm">Linux搭建NFS服务器</a></p>
                                     </div>
                                     </div>
                     <div class="col-md-3">
@@ -122,16 +123,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-61351.htm" title="vue 详情页返回列表，过滤查询条件保留">vue 详情页返回列表，过滤查询条件保留</a></li>
-                        <li class="py-2"><a href="/news/article-60184.htm" title="C++的命名空间">C++的命名空间</a></li>
-                        <li class="py-2"><a href="/news/article-39841.htm" title="宠物寄养一般怎么收费猫（一般寄养猫咪到宠物店需要多少钱一个月）">宠物寄养一般怎么收费猫（一般寄养猫咪到宠物店需要多少钱一个月）</a></li>
-                        <li class="py-2"><a href="/news/article-56198.htm" title="济南宠物狗领养中心地址在哪里（济南宠物领养济南宠物赠送）">济南宠物狗领养中心地址在哪里（济南宠物领养济南宠物赠送）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-28-free-node-subscribe.htm" title="「1月28日」最高速度22.1M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「1月28日」最高速度22.1M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-27-node-share-links.htm" title="「1月27日」最高速度18.7M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「1月27日」最高速度18.7M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-56752.htm" title="动物疫苗价格表图片大全及价格图 动物疫苗价格表图片大全及价格图">动物疫苗价格表图片大全及价格图 动物疫苗价格表图片大全及价格图</a></li>
-                        <li class="py-2"><a href="/news/article-40324.htm" title="Java-多线程-线程安全-同步代码块">Java-多线程-线程安全-同步代码块</a></li>
-                        <li class="py-2"><a href="/news/article-40827.htm" title="SpringMVC访问静态资源的三种方式">SpringMVC访问静态资源的三种方式</a></li>
-                        <li class="py-2"><a href="/news/article-58565.htm" title="动物医院怎么用英语怎么说 动物医院用英语怎么说?">动物医院怎么用英语怎么说 动物医院用英语怎么说?</a></li>
+                        <li class="py-2"><a href="/news/article-53977.htm" title="java多线程学习2，线程的属性">java多线程学习2，线程的属性</a></li>
+                        <li class="py-2"><a href="/news/article-57887.htm" title="动物疫苗的发展现状和趋势（动物疫苗的发展现状和趋势分析）">动物疫苗的发展现状和趋势（动物疫苗的发展现状和趋势分析）</a></li>
+                        <li class="py-2"><a href="/news/article-41819.htm" title="猪饲料厂加盟（猪饲料加盟店）">猪饲料厂加盟（猪饲料加盟店）</a></li>
+                        <li class="py-2"><a href="/news/article-37365.htm" title="仓鼠皮癣怎么治（仓鼠皮癣会自愈吗）">仓鼠皮癣怎么治（仓鼠皮癣会自愈吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-9-free-node-subscribe-links.htm" title="「2月9日」最高速度22.3M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「2月9日」最高速度22.3M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-35528.htm" title="小动物疫苗注射证明在哪里办理手续（小动物疫苗本）">小动物疫苗注射证明在哪里办理手续（小动物疫苗本）</a></li>
+                        <li class="py-2"><a href="/news/article-45801.htm" title="动物注射疫苗的流程图怎么画简单（动物疫苗注射方法）">动物注射疫苗的流程图怎么画简单（动物疫苗注射方法）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-11-free-node-subscribe.htm" title="「1月11日」最高速度19.9M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「1月11日」最高速度19.9M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-52373.htm" title="妙三多猫三联一共几针,多少钱（妙三多猫三联一盒几支）">妙三多猫三联一共几针,多少钱（妙三多猫三联一盒几支）</a></li>
+                        <li class="py-2"><a href="/news/article-63149.htm" title="PyQt5 按钮Button 添加事件(信号/槽)">PyQt5 按钮Button 添加事件(信号/槽)</a></li>
                     </ul>
     </div>
 </div>
@@ -143,7 +144,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
