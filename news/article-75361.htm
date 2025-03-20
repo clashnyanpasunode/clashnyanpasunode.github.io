@@ -113,6 +113,7 @@
                   				  				  				<div id="content_views" class="markdown_views prism-github-gist"> <h2> <a id="1_rematchresearch_0" rel="nofollow"></a>(1) re.match\re.search</h2> <pre><code>re.match(pattern,string.flag=0)                        #从第一个字母匹配，span（）输出范围 re.search(pattern,string,flags=0)                      #区别为search搜索整个字符串  </code></pre> <h2> <a id="2_recompile_6" rel="nofollow"></a>(2) re.compile</h2> <pre><code>re.compile(pattern，flag=0) #用来编辑正则表达式，返回一个正则表达式，用于match和search方法 </code></pre> <p>例子：</p> <pre><code>import re pattern = re.compile(r'\d+')                           #得到新的正则表达式pattern result = pattern.search("asdf13 34etq 56') print(result) &gt;&gt;&gt; &lt;re.Match object; span=(4, 6), match='13'&gt;         #注意输出的类型是 re.match 类型 result.group()                                         #group（）的用法，作用是分组，groups（）的作用是全部分组 &gt;&gt;&gt; '13' </code></pre> <h2> <a id="3refindall_23" rel="nofollow"></a>(3)re.findall</h2> <p>re.findall是搜索所有的符合条件的字符串,并<strong>返回一个列表</strong></p> <pre><code>import re pattern =  re.compile(r' \w+\s\w') result1 = pattern.findall("asdf13 34etq 56")                #用法1，用来配合match和search print(result1) &gt;&gt;&gt; ['13', '34', '56'] re.findall(string,pos,endpos)   #（）左封闭，如（0,3）指124 例子：找到字符串里面所有的数字：``` import re string = 'qwe123 rty456 uio789' re.findall(r'\d+',string) &gt;&gt;&gt;['123', '456', '789'] </code></pre> <p>例子：补充！！</p> <h2> <a id="4_40" rel="nofollow"></a>（4）替换与补充</h2> <p>re.sub(pattern,replace，string，count=0,flags=0) #作用就是将搜索到的字符串替换为指定的字符串</p> <pre><code>import re  re.sub(r'\d\d\d','000','123qwe456qwe78ui',count=1) &gt;&gt;&gt;'000qwe456qwe78ui' </code></pre> <p>还可以替换为函数，如将字符串中的数字放大两倍，s = ‘A23G4HFD567’</p> <pre><code>import re def double(): 	补充！！！ </code></pre> <h2> <a id="5refinditer_54" rel="nofollow"></a>（5）re.finditer</h2> <p>refinditer（pattern，string，flags=0）的作用是找到字符串，将其作为一个迭代器返回</p> <pre><code>import re it = re.finditer(r'\d+','as24jjl453lj6l786l8') for match in it: 	print(match.group()) &gt;&gt;&gt;24    453    6     786    8 </code></pre> <h2> <a id="6resplit_67" rel="nofollow"></a>（6）re.split</h2> <p>re.split(pattern,string,maxsplit = 0,flags=0)的作用是以搜索到的字符串作为分割符</p> <pre><code>import re re.split(r'\w+','runnoob, runnoob.') &gt;&gt;&gt; ['', ', ', '.'] </code></pre> <h2> <a id="_75" rel="nofollow"></a>练习：</h2> <p>（1）用正则表达式匹配IP地址172.20.68.170，191.125.1.1</p> <pre><code>import re ip = '192.168.1.1' trueIp =re.search(r'(([01]{0,1}\d{0,1}\d|2[0-4]\d|25[0-5])\.){3}([01]{0,1}\d{0,1}\d|2[0-4]\d|25[0-5])',ip) print(trueIp) &gt;&gt;&gt; 192.168.1.1 ''' 这种写法存在问题，即[01]{0,1}\d{0,1}\d会匹配到001的字符出来，而这样是不对的。故换另一种方式 ''' </code></pre> <p>分析：<br /> 0~99正则表达式为[0-9]{0,1}\d<br /> 100~199表示为 1\d{2}<br /> 200~249表示为 2[0-4]\d<br /> 250~255表示为 25[0-5]<br /> 因此，ip地址的正则表达式为([0-9]{0,1}\d|1\d{2}| 2[0-4]\d|25[0-5].){3}[0-9]{0,1}\d|1\d{2}| 2[0-4]\d|25[0-5]</p> <pre><code>import re ip = '192.170.1.1' re.search(r'([01]{0,1}\d{0,1}\d\.){3}[01]{0,1}\d{0,1}\d',ip) &gt;&gt;&gt; &lt;re.Match object; span=(0, 11), match='192.170.1.1'&gt; </code></pre> <h2> <a id="_102" rel="nofollow"></a>常用的正则表达式</h2> </p></div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-75360.htm">为什么在MySQL中使用两位数年份的日期值不是一个好习惯？</a></p>
+                                        <p>下一个：<a href="/news/article-76047.htm">广州哪里有批发衣服（广州哪里有批发衣服的地方）</a></p>
                                     </div>
                                     </div>
                     <div class="col-md-3">
@@ -122,16 +123,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-59607.htm" title="动物疫苗防疫站几点上班的 动物疫苗防疫站几点上班的啊">动物疫苗防疫站几点上班的 动物疫苗防疫站几点上班的啊</a></li>
-                        <li class="py-2"><a href="/news/article-42308.htm" title="宠物店宠物寄养协议（宠物店寄养协议有法律效力吗）">宠物店宠物寄养协议（宠物店寄养协议有法律效力吗）</a></li>
+                        <li class="py-2"><a href="/news/article-56753.htm" title="领养狗狗一般收多少钱一只（一般领养狗给多少钱）">领养狗狗一般收多少钱一只（一般领养狗给多少钱）</a></li>
                         <li class="py-2"><a href="/news/article-60771.htm" title="北京美联众合动物医院电话（北京美联众合动物医院招聘）">北京美联众合动物医院电话（北京美联众合动物医院招聘）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-28-free-node-subscribe.htm" title="「1月28日」最高速度22.1M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「1月28日」最高速度22.1M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-35527.htm" title="宠物粮在哪里批发好卖呢知乎（宠物粮从哪里进货便宜）">宠物粮在哪里批发好卖呢知乎（宠物粮从哪里进货便宜）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-15-free-clash-nyanpasu.htm" title="「1月15日」最高速度18.9M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「1月15日」最高速度18.9M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-39840.htm" title="宠物粮食加工厂加盟电话多少啊 宠物粮食加工厂加盟电话多少啊">宠物粮食加工厂加盟电话多少啊 宠物粮食加工厂加盟电话多少啊</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-3-3-linux-clash-nyanpasu.htm" title="「3月3日」最高速度21.5M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「3月3日」最高速度21.5M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-63763.htm" title="免费领养宠物猫的正规平台（正规免费领养宠物猫app）">免费领养宠物猫的正规平台（正规免费领养宠物猫app）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-12-node-share.htm" title="「1月12日」最高速度20.5M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「1月12日」最高速度20.5M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-62549.htm" title="兽医专业自考需要什么条件（兽医自考需要什么条件2020）">兽医专业自考需要什么条件（兽医自考需要什么条件2020）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-19-free-high-speed-nodes.htm" title="「1月19日」最高速度22.2M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「1月19日」最高速度22.2M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-71360.htm" title="win11系统怎么关闭自动锁屏">win11系统怎么关闭自动锁屏</a></li>
+                        <li class="py-2"><a href="/news/article-74018.htm" title="猫粮品牌排行榜10强有哪些（猫粮排行榜前十）">猫粮品牌排行榜10强有哪些（猫粮排行榜前十）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-25-linux-clash-nyanpasu.htm" title="「1月25日」最高速度19.4M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「1月25日」最高速度19.4M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-14-free-clash-nyanpasu.htm" title="「2月14日」最高速度21.2M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「2月14日」最高速度21.2M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-69401.htm" title="宠物领养正规网站（宠物领养的网站）">宠物领养正规网站（宠物领养的网站）</a></li>
+                        <li class="py-2"><a href="/news/article-49757.htm" title="宠物粮食加工厂设备有哪些品牌好用（宠物粮食加工厂需要投资多少钱）">宠物粮食加工厂设备有哪些品牌好用（宠物粮食加工厂需要投资多少钱）</a></li>
                     </ul>
     </div>
 </div>
@@ -143,7 +144,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">51</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+                <h4><span class="badge" style="float: right;">60</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
