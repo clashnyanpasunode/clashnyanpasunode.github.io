@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashnyanpasunode.github.io/news/article-78078.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Spring Security认证_认证（成功和失败）后的处理方式</title>
+        <meta name="description" content="认证成功的处理  登录成功后，如果除了跳转页面还需要执行一些自定义代码时，如：统计访问量，推送消息等操作时，可以自定义登录成功处理器。 自定义登录成功处理器 /**  * @Author yqq  *" />
+        <link rel="icon" href="/assets/website/img/clashnyanpasunode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Clash Nyanpasu Node节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashnyanpasunode.github.io/news/article-78078.htm" />
+    <meta property="og:site_name" content="Clash Nyanpasu Node节点订阅站" />
+    <meta property="og:title" content="Spring Security认证_认证（成功和失败）后的处理方式" />
+    <meta property="og:image" content="https://clashnyanpasunode.github.io/uploads/20240728-1/29245e3f5171286559b8400b5dc9741e.webp" />
+        <meta property="og:release_date" content="2025-03-21T10:28:25" />
+    <meta property="og:updated_time" content="2025-03-21T10:28:25" />
+        <meta property="og:description" content="认证成功的处理  登录成功后，如果除了跳转页面还需要执行一些自定义代码时，如：统计访问量，推送消息等操作时，可以自定义登录成功处理器。 自定义登录成功处理器 /**  * @Author yqq  *" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Spring Security认证_认证（成功和失败）后的处理方式">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/clashnyanpasunode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashnyanpasunode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashnyanpasunode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashnyanpasunode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashnyanpasunode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/clashnyanpasunode/main.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FW6BH5KXK9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FW6BH5KXK9');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- ======= Header ======= -->
+    <header id="header" class="header d-flex align-items-center">
+        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+            <a href="/" class="logo d-flex align-items-center xcblog-blog-logo">
+                                <span><p>ClashNyanpasu<span>Node</span></p></span>
+                            </a>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                    </ul>
+            </nav><!-- .navbar -->
+            <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+            <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+        </div>
+    </header><!-- End Header -->
+    <!-- End Header -->
+    <!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs ======= -->
+        <div class="breadcrumbs">
+            <div class="page-header d-flex align-items-center" style="background-image: url('');">
+                <div class="container position-relative">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-6 text-center">
+                            <h1>Spring Security认证_认证（成功和失败）后的处理方式</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav>
+                <div class="container">
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </nav>
+        </div><!-- End Breadcrumbs -->
+        <!-- ======= About Us Section ======= -->
+        <section id="about" class="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-md-9 xcblog-blog-list">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night"> <h3><a id="_0" rel="nofollow"></a>认证成功的处理</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220901/b54be32c572b01b725bdadd82a092918.jpg" alt="Spring Security认证_认证（成功和失败）后的处理方式"><br /> 登录成功后，如果除了跳转页面还需要执行一些自定义代码时，如：统计访问量，推送消息等操作时，可以自定义登录成功处理器。</p> <h4><a id="_3" rel="nofollow"></a>自定义登录成功处理器</h4> <pre><code class="prism language-java"><span class="token comment">/**  * @Author yqq  * @Date 2022/05/17 17:06  * @Version 1.0  */</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">LoginSuccessHandler</span><span class="token keyword">implements</span><span class="token class-name">AuthenticationSuccessHandler</span><span class="token punctuation">{<!-- --></span><span class="token annotation punctuation">@Override</span><span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">onAuthenticationSuccess</span><span class="token punctuation">(</span><span class="token class-name">HttpServletRequest</span> request<span class="token punctuation">,</span><span class="token class-name">HttpServletResponse</span> response<span class="token punctuation">,</span><span class="token class-name">Authentication</span> authentication<span class="token punctuation">)</span><span class="token keyword">throws</span><span class="token class-name">IOException</span><span class="token punctuation">,</span><span class="token class-name">ServletException</span><span class="token punctuation">{<!-- --></span><span class="token comment">//拿到用户的信息</span><span class="token class-name">UserDetails</span> userDetails<span class="token operator">=</span><span class="token punctuation">(</span><span class="token class-name">UserDetails</span><span class="token punctuation">)</span>authentication<span class="token punctuation">.</span><span class="token function">getPrincipal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"用户名："</span><span class="token operator">+</span> userDetails<span class="token punctuation">.</span><span class="token function">getUsername</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"其他信息"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//重定向到主页</span>         response<span class="token punctuation">.</span><span class="token function">sendRedirect</span><span class="token punctuation">(</span><span class="token string">"/main"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <h4><a id="_24" rel="nofollow"></a>配置登录成功处理器</h4> <pre><code class="prism language-java"><span class="token comment">/**      * 对Spring Security 配置      * @param http      * @throws Exception      */</span><span class="token annotation punctuation">@Override</span><span class="token keyword">protected</span><span class="token keyword">void</span><span class="token function">configure</span><span class="token punctuation">(</span><span class="token class-name">HttpSecurity</span> http<span class="token punctuation">)</span><span class="token keyword">throws</span><span class="token class-name">Exception</span><span class="token punctuation">{<!-- --></span><span class="token comment">//自定义表单登录</span>         http<span class="token punctuation">.</span><span class="token function">formLogin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">loginPage</span><span class="token punctuation">(</span><span class="token string">"/login.html"</span><span class="token punctuation">)</span><span class="token comment">//自定义登录页面</span><span class="token punctuation">.</span><span class="token function">usernameParameter</span><span class="token punctuation">(</span><span class="token string">"username"</span><span class="token punctuation">)</span><span class="token comment">//表单中的用户名项</span><span class="token punctuation">.</span><span class="token function">passwordParameter</span><span class="token punctuation">(</span><span class="token string">"password"</span><span class="token punctuation">)</span><span class="token comment">//表单中的密码项</span><span class="token punctuation">.</span><span class="token function">loginProcessingUrl</span><span class="token punctuation">(</span><span class="token string">"/login"</span><span class="token punctuation">)</span><span class="token comment">//表单提交路劲，提交后执行认证逻辑</span><span class="token comment">//                .successForwardUrl("/main")//登录成功后的路劲</span><span class="token punctuation">.</span><span class="token function">successHandler</span><span class="token punctuation">(</span><span class="token keyword">new</span><span class="token class-name">LoginSuccessHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">//登录成功的处理器</span><span class="token punctuation">.</span><span class="token function">failureForwardUrl</span><span class="token punctuation">(</span><span class="token string">"/fail"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//登录失败后的路劲</span></code></pre> <h4><a id="_44" rel="nofollow"></a>测试</h4> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220901/a872e93d0366252e1cfa849cdadea88b.jpg" alt="Spring Security认证_认证（成功和失败）后的处理方式"></p> <h3><a id="_46" rel="nofollow"></a>认证失败的处理</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220901/88cb2a73cf7da81aa3d8bd811a78a45e.jpg" alt="Spring Security认证_认证（成功和失败）后的处理方式"><br /> 登录失败后，如果除了跳转页面还需要执行一些自定义代码时，如：统计失败次数，记录日志等，可以自定义登录失败处理器。</p> <h4><a id="_49" rel="nofollow"></a>自定义登录失败处理器</h4> <pre><code class="prism language-java"><span class="token comment">/**  * @Author yqq  * @Date 2022/05/17 17:25  * @Version 1.0  */</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">LoginFailureHandler</span><span class="token keyword">implements</span><span class="token class-name">AuthenticationFailureHandler</span><span class="token punctuation">{<!-- --></span><span class="token annotation punctuation">@Override</span><span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">onAuthenticationFailure</span><span class="token punctuation">(</span><span class="token class-name">HttpServletRequest</span> request<span class="token punctuation">,</span><span class="token class-name">HttpServletResponse</span> response<span class="token punctuation">,</span><span class="token class-name">AuthenticationException</span> exception<span class="token punctuation">)</span><span class="token keyword">throws</span><span class="token class-name">IOException</span><span class="token punctuation">,</span><span class="token class-name">ServletException</span><span class="token punctuation">{<!-- --></span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"记录失败日志。。。。"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         response<span class="token punctuation">.</span><span class="token function">sendRedirect</span><span class="token punctuation">(</span><span class="token string">"/fail"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <h4><a id="_66" rel="nofollow"></a>配置登录失败处理器</h4> <pre><code class="prism language-java"><span class="token comment">/**      * 对Spring Security 配置      * @param http      * @throws Exception      */</span><span class="token annotation punctuation">@Override</span><span class="token keyword">protected</span><span class="token keyword">void</span><span class="token function">configure</span><span class="token punctuation">(</span><span class="token class-name">HttpSecurity</span> http<span class="token punctuation">)</span><span class="token keyword">throws</span><span class="token class-name">Exception</span><span class="token punctuation">{<!-- --></span><span class="token comment">//自定义表单登录</span>         http<span class="token punctuation">.</span><span class="token function">formLogin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">loginPage</span><span class="token punctuation">(</span><span class="token string">"/login.html"</span><span class="token punctuation">)</span><span class="token comment">//自定义登录页面</span><span class="token punctuation">.</span><span class="token function">usernameParameter</span><span class="token punctuation">(</span><span class="token string">"username"</span><span class="token punctuation">)</span><span class="token comment">//表单中的用户名项</span><span class="token punctuation">.</span><span class="token function">passwordParameter</span><span class="token punctuation">(</span><span class="token string">"password"</span><span class="token punctuation">)</span><span class="token comment">//表单中的密码项</span><span class="token punctuation">.</span><span class="token function">loginProcessingUrl</span><span class="token punctuation">(</span><span class="token string">"/login"</span><span class="token punctuation">)</span><span class="token comment">//表单提交路劲，提交后执行认证逻辑</span><span class="token comment">//                .successForwardUrl("/main")//登录成功后的路劲</span><span class="token punctuation">.</span><span class="token function">successHandler</span><span class="token punctuation">(</span><span class="token keyword">new</span><span class="token class-name">LoginSuccessHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">//登录成功的处理器</span><span class="token comment">//                .failureForwardUrl("/fail");//登录失败后的路劲</span><span class="token punctuation">.</span><span class="token function">failureHandler</span><span class="token punctuation">(</span><span class="token keyword">new</span><span class="token class-name">LoginFailureHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//登录失败的处理器</span><span class="token comment">//需要认证的资源</span>         http<span class="token punctuation">.</span><span class="token function">authorizeRequests</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">antMatchers</span><span class="token punctuation">(</span><span class="token string">"/login.html"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">permitAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment">//登录页默认授权不需要认证</span><span class="token punctuation">.</span><span class="token function">antMatchers</span><span class="token punctuation">(</span><span class="token string">"/fail"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">permitAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment">//失败页面不需要认证</span><span class="token punctuation">.</span><span class="token function">anyRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">authenticated</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//其余所有请求都需要认证</span></code></pre> <h4><a id="_93" rel="nofollow"></a>测试</h4> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220901/415324f80dc78a3e7ffeec8751712267.jpg" alt="Spring Security认证_认证（成功和失败）后的处理方式"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220901/7f22d6d1428f08cf0c1ce8ff960f0e31.jpg" alt="Spring Security认证_认证（成功和失败）后的处理方式"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-77409.htm">关于动物医院的动画片有哪些（动物医院绘本故事）</a></p>
+                                        <p>下一个：<a href="/news/article-78079.htm">动物疫苗碰到人的皮肤有害吗会传染吗视频教程（动物打了疫苗的,伤了人怎么办）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-42307.htm" title="宠物粮食代工一吨2万一贵吗知乎 宠物粮食代工一吨2万一贵吗知乎">宠物粮食代工一吨2万一贵吗知乎 宠物粮食代工一吨2万一贵吗知乎</a></li>
+                        <li class="py-2"><a href="/news/article-46279.htm" title="兽用疫苗怎样保存最好（兽用疫苗运输与储存规范）">兽用疫苗怎样保存最好（兽用疫苗运输与储存规范）</a></li>
+                        <li class="py-2"><a href="/news/article-48763.htm" title="react事件类型">react事件类型</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-10-free-node-subscribe-links.htm" title="「1月10日」最高速度21M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「1月10日」最高速度21M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-12-free-subscribe-node.htm" title="「3月12日」最高速度19.4M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「3月12日」最高速度19.4M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-35999.htm" title="正大饲料加盟代理 正大饲料加盟代理电话">正大饲料加盟代理 正大饲料加盟代理电话</a></li>
+                        <li class="py-2"><a href="/news/article-61352.htm" title="国内宠物粮食十大厂家排名（中国宠物粮厂家批发网）">国内宠物粮食十大厂家排名（中国宠物粮厂家批发网）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-21-node-share-links.htm" title="「3月21日」最高速度21.4M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「3月21日」最高速度21.4M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-60183.htm" title="python sum+=i+1_1.Pydef sum(n,p=2):result">python sum+=i+1_1.Pydef sum(n,p=2):result</a></li>
+                        <li class="py-2"><a href="/news/article-37365.htm" title="仓鼠皮癣怎么治（仓鼠皮癣会自愈吗）">仓鼠皮癣怎么治（仓鼠皮癣会自愈吗）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">69</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Us Section -->
+    </main><!-- End #main -->
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+        <div class="container mt-4">
+            <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                Clash Nyanpasu Node节点订阅站 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <!-- End Footer -->
+    <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <div id="preloader"></div>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/clashnyanpasunode/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/purecounter/purecounter_vanilla.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/swiper/swiper-bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/php-email-form/validate.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/clashnyanpasunode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
