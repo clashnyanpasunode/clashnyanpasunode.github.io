@@ -2649,6 +2649,7 @@ section {
   color: #fff;
   border-color: #fff;
 }
+.footer a {color: #fff;}
 
 .footer h4 {
   font-size: 16px;
