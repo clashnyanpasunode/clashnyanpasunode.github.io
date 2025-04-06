@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashnyanpasunode.github.io/news/article-88686.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Java的接口详解</title>
+        <meta name="description" content="1.什么是接口？ 一、咱们看什么是接口之前，咱们比较一下普通类、抽象类、接口三者之间的区别  普通类：只有具体实现（普通方法） 抽象类：具体实现（普通方法）和规范（抽象方法）都有！ 接口：只有规范（抽" />
+        <link rel="icon" href="/assets/website/img/clashnyanpasunode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Clash Nyanpasu Node节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashnyanpasunode.github.io/news/article-88686.htm" />
+    <meta property="og:site_name" content="Clash Nyanpasu Node节点订阅站" />
+    <meta property="og:title" content="Java的接口详解" />
+    <meta property="og:image" content="https://clashnyanpasunode.github.io/uploads/20240728-1/8036bcf26556bafc3b717b9d193e1646.webp" />
+        <meta property="og:release_date" content="2025-04-05T08:16:19" />
+    <meta property="og:updated_time" content="2025-04-05T08:16:19" />
+        <meta property="og:description" content="1.什么是接口？ 一、咱们看什么是接口之前，咱们比较一下普通类、抽象类、接口三者之间的区别  普通类：只有具体实现（普通方法） 抽象类：具体实现（普通方法）和规范（抽象方法）都有！ 接口：只有规范（抽" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Java的接口详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/clashnyanpasunode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashnyanpasunode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashnyanpasunode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashnyanpasunode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/clashnyanpasunode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/clashnyanpasunode/main.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FW6BH5KXK9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FW6BH5KXK9');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- ======= Header ======= -->
+    <header id="header" class="header d-flex align-items-center">
+        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+            <a href="/" class="logo d-flex align-items-center xcblog-blog-logo">
+                                <span><p>ClashNyanpasu<span>Node</span></p></span>
+                            </a>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a href="/client.htm">客户端</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                    </ul>
+            </nav><!-- .navbar -->
+            <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+            <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+        </div>
+    </header><!-- End Header -->
+    <!-- End Header -->
+    <!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs ======= -->
+        <div class="breadcrumbs">
+            <div class="page-header d-flex align-items-center" style="background-image: url('');">
+                <div class="container position-relative">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-6 text-center">
+                            <h1>Java的接口详解</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav>
+                <div class="container">
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </nav>
+        </div><!-- End Breadcrumbs -->
+        <!-- ======= About Us Section ======= -->
+        <section id="about" class="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-md-9 xcblog-blog-list">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> </h1> <h2><a id="1_2" rel="nofollow"></a>1.什么是接口？</h2> <p>一、咱们看什么是接口之前，咱们比较一下普通类、抽象类、接口三者之间的区别</p> <ul> <li>普通类：只有具体实现（普通方法）</li> <li>抽象类：具体实现（普通方法）和规范（抽象方法）都有！</li> <li>接口：只有规范（抽象方法）</li> </ul> <p>二、咱们简单解释一下接口</p> <ol> <li>接口就是规范，定义的是一组规则，体现了显示世界中“如果你是…则必须能…”的思想。如果你是天使，则必须能飞；如果你是汽车，则必须能跑；如果你是好人，则必须干掉坏人；如果你是坏人，则必须欺负好人。</li> <li>接口的本质是契约，就像我们人间的法律一样，制定好后大家都去遵守。</li> <li>接口的精髓，是对对象的抽象，最能体现这一点的就是接口</li> </ol> <p>注：声明类的关键字是class,声明接口的关键字是interface</p> <h2><a id="2_18" rel="nofollow"></a>2.怎么用接口？</h2> <ul> <li>咱们创建一个接口，接口的关键字是interface，代码如下：</li> </ul> <pre><code class="prism language-java"><span class="token keyword">public</span><span class="token keyword">interface</span> userservice<span class="token punctuation">{<!-- --></span><span class="token comment">//接口中的所有定义其实都是抽象的,都是public abstract的。</span><span class="token keyword">public</span><span class="token keyword">abstract</span><span class="token keyword">void</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//public abstract是可以不用写的</span><span class="token keyword">void</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">void</span><span class="token function">jump</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">void</span><span class="token function">smile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">void</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre> <p>public abstract是可以不用写的，接口中的所有定义都是抽象的，普通方法是无法写的。</p> <ul> <li>咱们再创建一个类，来实现这个接口，不能再用extents了，因为extents是单继承，而implements是多继承，可以继承多个接口，所以要用implements。</li> </ul> <pre><code class="prism language-java"><span class="token keyword">public</span><span class="token keyword">class</span> userserviceIMPl<span class="token keyword">implements</span> userservice<span class="token punctuation">{<!-- --></span><span class="token annotation punctuation">@Override</span><span class="token comment">//重写</span><span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token annotation punctuation">@Override</span><span class="token comment">//重写</span><span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token annotation punctuation">@Override</span><span class="token comment">//重写</span><span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">jump</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token annotation punctuation">@Override</span><span class="token comment">//重写</span><span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">smile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token annotation punctuation">@Override</span><span class="token comment">//重写</span><span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <p>他所继承的接口中，接口中的每一个抽象方法，都必须被子类重写，否则子类报错。</p> <ul> <li> <p>它可以继承多个接口，代码如下：</p> <p>咱们编写一个新的接口</p> </li> </ul> <pre><code class="prism language-java"><span class="token keyword">public</span><span class="token keyword">interface</span> test<span class="token punctuation">{<!-- --></span><span class="token keyword">void</span><span class="token function">test1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">void</span><span class="token function">test2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">void</span><span class="token function">test3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre> <p>咱们用子类继承上面两个接口</p> <pre><code class="prism language-java"><span class="token keyword">public</span><span class="token keyword">class</span> userserviceIMPl<span class="token keyword">implements</span> userservice<span class="token punctuation">,</span>test<span class="token punctuation">{<!-- --></span><span class="token annotation punctuation">@Override</span><span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token annotation punctuation">@Override</span><span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">test3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token annotation punctuation">@Override</span><span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">test1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token annotation punctuation">@Override</span><span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">test2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token annotation punctuation">@Override</span><span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token annotation punctuation">@Override</span><span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">jump</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token annotation punctuation">@Override</span><span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">smile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token annotation punctuation">@Override</span><span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <p>少重写两个接口中的一个抽象方法都不行，都会爆红。</p> <p>看到这里，要记住一个东西，java是单继承的，但是可以通过 接口 实现多继承！</p> <ul> <li>在接口里面定义的属性都是常量。</li> </ul> <pre><code class="prism language-java"><span class="token keyword">public</span><span class="token keyword">interface</span> test<span class="token punctuation">{<!-- --></span><span class="token comment">//常量，由public static final 来修饰</span><span class="token keyword">public</span><span class="token keyword">static</span><span class="token keyword">final</span><span class="token keyword">int</span> age<span class="token operator">=</span><span class="token number">23</span><span class="token punctuation">;</span><span class="token keyword">int</span> year<span class="token operator">=</span><span class="token number">233</span><span class="token punctuation">;</span><span class="token comment">//同样public static final 可以省略不写。</span><span class="token punctuation">}</span></code></pre> <h2><a id="_140" rel="nofollow"></a>接口的作用</h2> <ol> <li>约束</li> <li>定义一些方法，让不同的人实现。</li> <li>接口中的方法都是public abstract的。</li> <li>接口中的常量都是public static final的。</li> <li>接口不能被实例化 因为接口中没有构造方法。</li> <li>可以实现继承多个接口，通过implement 实现。</li> </ol> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-88685.htm">springboot 使用 ActiveMQ</a></p>
+                                        <p>下一个：<a href="/news/article-89425.htm">动物医院价格表图片大全集（动物医院价格表图片大全集高清）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-70711.htm" title="「BUAA OO Unit 2 HW8」第二单元总结_在线工具">「BUAA OO Unit 2 HW8」第二单元总结_在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-85089.htm" title="动物疫苗多少钱一支啊图片大全集高清（动物疫苗多少钱一支啊图片大全集高清图）">动物疫苗多少钱一支啊图片大全集高清（动物疫苗多少钱一支啊图片大全集高清图）</a></li>
+                        <li class="py-2"><a href="/news/article-74018.htm" title="猫粮品牌排行榜10强有哪些（猫粮排行榜前十）">猫粮品牌排行榜10强有哪些（猫粮排行榜前十）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-5-node-share.htm" title="「3月5日」最高速度19.8M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「3月5日」最高速度19.8M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-85812.htm" title="关于BenchMark/c++11计时器/Chrome:tracing 的一些笔记_在线工具">关于BenchMark/c++11计时器/Chrome:tracing 的一些笔记_在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-81518.htm" title="亿迪猫粮怎么样（亿迪猫粮怎么样好吃吗）">亿迪猫粮怎么样（亿迪猫粮怎么样好吃吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-4-free-subscribe-node.htm" title="「3月4日」最高速度18.2M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「3月4日」最高速度18.2M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-78079.htm" title="动物疫苗碰到人的皮肤有害吗会传染吗视频教程（动物打了疫苗的,伤了人怎么办）">动物疫苗碰到人的皮肤有害吗会传染吗视频教程（动物打了疫苗的,伤了人怎么办）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-15-clash-nyanpasu-node.htm" title="「3月15日」最高速度19.6M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「3月15日」最高速度19.6M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-80140.htm" title="sequelize多条件_Sequelize操作MySQL基本用法">sequelize多条件_Sequelize操作MySQL基本用法</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Us Section -->
+    </main><!-- End #main -->
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+        <div class="container mt-4">
+            <div class="copyright">
+                                    <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                Clash Nyanpasu Node节点订阅站 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <!-- End Footer -->
+    <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <div id="preloader"></div>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/clashnyanpasunode/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/purecounter/purecounter_vanilla.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/swiper/swiper-bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/clashnyanpasunode/php-email-form/validate.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/clashnyanpasunode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
