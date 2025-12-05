@@ -351,42 +351,13 @@ PROCESS-NAME,YouTube,PROXY
 <div class="clearfix"></div>
 <div class="col-md-12 mt-5">
         <p>上一个：<a href="/free-nodes/2025-11-27-linux-clash-nyanpasu.htm">「11月27日」最高速度22.2M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></p>
+        <p>下一个：<a href="/free-nodes/2025-11-29-free-clash-nyanpasu.htm">「11月29日」最高速度22M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></p>
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Mihomo 的日志功能如何调试连接问题？</h5></div>
+    <div class="panel-heading"><h5>Clash 如何通过命令行管理配置？</h5></div>
     <div class="panel-body">
-        Mihomo 日志可显示节点连接、请求延迟和错误信息。通过分析日志，可以判断节点是否不可达、TLS 握手失败或规则匹配异常，从而快速定位问题并解决。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 的自定义 outbound 功能有什么用？</h5></div>
-    <div class="panel-body">
-        Sing-box 允许用户自定义多个 outbound 出口，并通过路由规则选择性输出。例如可让流媒体走特定节点，而其他网站使用备用节点，从而实现精准分流。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess 的 gRPC 传输适合移动网络吗？</h5></div>
-    <div class="panel-body">
-        gRPC 传输支持长连接和多路复用，减少握手次数，降低延迟。对于移动网络和高延迟环境，它能提供稳定和高速的访问体验，同时降低掉线和延迟波动风险。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray QUIC 模式在高丢包网络的优势？</h5></div>
-    <div class="panel-body">
-        QUIC 基于 UDP 支持多路复用和零握手，减少延迟和丢包。适合视频、游戏和即时通讯流量，保证高丢包环境下网络稳定性和访问速度，提高整体体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hiddify Next 用户流量配额如何设置？</h5></div>
-    <div class="panel-body">
-        管理员可为每个用户设置带宽和流量上限，超出限制可自动降速或阻止访问，保证服务器资源合理分配，避免单用户占用过多带宽，提高整体网络公平性和使用效率。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 的多策略组能带来什么优势？</h5></div>
-    <div class="panel-body">
-        多策略组可将节点按用途或地域分类，结合路由规则实现精准分流。用户无需频繁切换节点即可自动使用最佳线路，提高网络访问效率和稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>如何防止 Clash 被系统防火墙阻断？</h5></div>
-    <div class="panel-body">
-        请在防火墙设置中允许 Clash 的执行文件通过网络访问，并开放其监听端口。若使用 Windows Defender，可在防火墙高级规则中手动添加入站和出站规则，确保代理通信正常。<hr />    </div>
+        Clash 内置命令行接口，可用于启动、停止、切换配置或查看日志。通过命令行运行 `clash -f config.yaml` 可加载指定配置文件，适合服务器或无人值守场景。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Surfboard 与 Shadowrocket 有什么区别？</h5></div>
@@ -394,14 +365,44 @@ PROCESS-NAME,YouTube,PROXY
         两者都是 iOS 上的代理工具。Shadowrocket 功能更全面、更新更频繁，而 Surfboard 以轻量和快速见长。若只需简单分流与节点切换，Surfboard 足以满足日常使用。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 如何通过命令行管理配置？</h5></div>
+    <div class="panel-heading"><h5>Hiddify Next 用户流量配额如何设置？</h5></div>
     <div class="panel-body">
-        Clash 内置命令行接口，可用于启动、停止、切换配置或查看日志。通过命令行运行 `clash -f config.yaml` 可加载指定配置文件，适合服务器或无人值守场景。<hr />    </div>
+        管理员可为每个用户设置带宽和流量上限，超出限制可自动降速或阻止访问，保证服务器资源合理分配，避免单用户占用过多带宽，提高整体网络公平性和使用效率。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何防止 Clash 被系统防火墙阻断？</h5></div>
+    <div class="panel-body">
+        请在防火墙设置中允许 Clash 的执行文件通过网络访问，并开放其监听端口。若使用 Windows Defender，可在防火墙高级规则中手动添加入站和出站规则，确保代理通信正常。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Sing-box 的自定义 outbound 功能有什么用？</h5></div>
+    <div class="panel-body">
+        Sing-box 允许用户自定义多个 outbound 出口，并通过路由规则选择性输出。例如可让流媒体走特定节点，而其他网站使用备用节点，从而实现精准分流。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>V2Ray QUIC 模式在高丢包网络的优势？</h5></div>
+    <div class="panel-body">
+        QUIC 基于 UDP 支持多路复用和零握手，减少延迟和丢包。适合视频、游戏和即时通讯流量，保证高丢包环境下网络稳定性和访问速度，提高整体体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>SSR 的混淆和协议组合如何选择？</h5></div>
     <div class="panel-body">
-        根据网络封锁情况选择适合的混淆和协议组合，例如 tls1.2_ticket_auth 模拟 HTTPS 流量。不同组合对抗 DPI 和封锁能力不同，需要测试后选择最稳定和高效的方案。    </div>
+        根据网络封锁情况选择适合的混淆和协议组合，例如 tls1.2_ticket_auth 模拟 HTTPS 流量。不同组合对抗 DPI 和封锁能力不同，需要测试后选择最稳定和高效的方案。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VMess 的 gRPC 传输适合移动网络吗？</h5></div>
+    <div class="panel-body">
+        gRPC 传输支持长连接和多路复用，减少握手次数，降低延迟。对于移动网络和高延迟环境，它能提供稳定和高速的访问体验，同时降低掉线和延迟波动风险。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Sing-box 的多策略组能带来什么优势？</h5></div>
+    <div class="panel-body">
+        多策略组可将节点按用途或地域分类，结合路由规则实现精准分流。用户无需频繁切换节点即可自动使用最佳线路，提高网络访问效率和稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Mihomo 的日志功能如何调试连接问题？</h5></div>
+    <div class="panel-body">
+        Mihomo 日志可显示节点连接、请求延迟和错误信息。通过分析日志，可以判断节点是否不可达、TLS 握手失败或规则匹配异常，从而快速定位问题并解决。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -430,16 +431,16 @@ PROCESS-NAME,YouTube,PROXY
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-10-9-clash-nyanpasu.htm" title="「10月9日」最高速度18.3M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「10月9日」最高速度18.3M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-19-node-share.htm" title="「10月19日」最高速度21.8M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「10月19日」最高速度21.8M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-21-free-node-subscribe-links.htm" title="「11月21日」最高速度22.3M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「11月21日」最高速度22.3M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-1-clash-nyanpasu.htm" title="「11月1日」最高速度18.3M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「11月1日」最高速度18.3M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-3-free-clash-nyanpasu.htm" title="「10月3日」最高速度20.4M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「10月3日」最高速度20.4M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-5-node-share-links.htm" title="「10月5日」最高速度19M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「10月5日」最高速度19M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-28-free-subscribe-node.htm" title="「11月28日」最高速度19.7M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「11月28日」最高速度19.7M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-26-free-subscribe-node.htm" title="「11月26日」最高速度22.3M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「11月26日」最高速度22.3M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-7-free-subscribe-node.htm" title="「11月7日」最高速度19.3M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「11月7日」最高速度19.3M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-11-20-free-clash-nyanpasu.htm" title="「11月20日」最高速度20.2M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「11月20日」最高速度20.2M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-8-free-high-speed-nodes.htm" title="「11月8日」最高速度21.8M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「11月8日」最高速度21.8M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-1-node-share-links.htm" title="「12月1日」最高速度21.7M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「12月1日」最高速度21.7M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-11-node-share.htm" title="「11月11日」最高速度18.3M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「11月11日」最高速度18.3M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-29-free-clash-nyanpasu.htm" title="「11月29日」最高速度22M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「11月29日」最高速度22M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-18-clash-nyanpasu.htm" title="「11月18日」最高速度21M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「11月18日」最高速度21M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-9-linux-clash-nyanpasu.htm" title="「11月9日」最高速度23M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「11月9日」最高速度23M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-27-linux-clash-nyanpasu.htm" title="「11月27日」最高速度22.2M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「11月27日」最高速度22.2M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-5-linux-clash-nyanpasu.htm" title="「11月5日」最高速度21.8M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「11月5日」最高速度21.8M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-21-free-node-subscribe-links.htm" title="「11月21日」最高速度22.3M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「11月21日」最高速度22.3M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -451,10 +452,10 @@ PROCESS-NAME,YouTube,PROXY
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
+                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-10/" title="2025-10 归档">2025-10</a></h4>
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
             </li>
                     </ul>
     </div>
