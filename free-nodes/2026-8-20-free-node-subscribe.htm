@@ -302,14 +302,39 @@ A：检查节点是否过期，尝试更换协议和端口，确保配置无误�
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Hysteria2 客户端延迟测试值不稳定怎么办？</h5></div>
+    <div class="panel-body">
+        可通过调整 Hysteria2 的 `recv_window` 与 `send_window` 参数改善传输性能，同时确保服务器带宽充足。若使用移动网络，建议启用 BBR 拥塞控制并降低测速频率以减少波动。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hiddify Next 是什么？</h5></div>
+    <div class="panel-body">
+        Hiddify Next 是基于 sing-box 的多协议代理客户端，适用于 Android、Windows 等平台。它整合了 Vless、VMess、Trojan、Hysteria 等协议，支持自动测速和订阅转换，是移动端非常流行的代理工具。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VMess AEAD 加密如何确保数据安全？</h5></div>
+    <div class="panel-body">
+        AEAD 加密防止数据篡改、重放攻击和流量特征泄露。在高封锁环境下，保证节点可用，提升数据安全和连接稳定性，降低被检测风险，确保长期安全访问。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Mellow 是否支持 IPv6 流量代理？</h5></div>
     <div class="panel-body">
         Mellow 支持 IPv6，只需在配置文件中启用 IPv6 DNS 解析并确认操作系统开启 IPv6 路由功能。部分节点若不支持 IPv6，则相关请求会自动回退到 IPv4，保证兼容性。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Sing-box 如何兼容 Clash 的配置文件？</h5></div>
+    <div class="panel-body">
+        Sing-box 支持 Clash 规则格式的解析，用户可直接导入 Clash 的 YAML 配置文件进行使用。虽然部分高级参数需要调整，但大多数分流和策略配置都能自动识别，便于迁移。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>如何优化 Clash 的 DNS 设置？</h5></div>
     <div class="panel-body">
         在 Clash 中使用自定义 DNS 可以加快域名解析速度。建议使用 doh（DNS over HTTPS）或 dot（DNS over TLS）配置方式，既能提升速度，也能保护隐私防止 DNS 泄露。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Mellow 与 Clash 的核心区别是什么？</h5></div>
+    <div class="panel-body">
+        Mellow 采用基于透明代理的架构，适合路由或系统级流量重定向，而 Clash 更偏向规则式应用代理。Mellow 的灵活性更高，但配置复杂；Clash 则兼顾易用性与功能扩展性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Clash Premium 与普通版本有什么区别？</h5></div>
@@ -322,34 +347,9 @@ A：检查节点是否过期，尝试更换协议和端口，确保配置无误�
         路由规则支持按域名、IP 地址、端口、协议类型或用户标签进行匹配。结合策略组，可实现国内直连、国外代理或特定节点定向分流，满足不同网络需求。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Mellow 与 Clash 的核心区别是什么？</h5></div>
-    <div class="panel-body">
-        Mellow 采用基于透明代理的架构，适合路由或系统级流量重定向，而 Clash 更偏向规则式应用代理。Mellow 的灵活性更高，但配置复杂；Clash 则兼顾易用性与功能扩展性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess AEAD 加密如何确保数据安全？</h5></div>
-    <div class="panel-body">
-        AEAD 加密防止数据篡改、重放攻击和流量特征泄露。在高封锁环境下，保证节点可用，提升数据安全和连接稳定性，降低被检测风险，确保长期安全访问。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hiddify Next 是什么？</h5></div>
-    <div class="panel-body">
-        Hiddify Next 是基于 sing-box 的多协议代理客户端，适用于 Android、Windows 等平台。它整合了 Vless、VMess、Trojan、Hysteria 等协议，支持自动测速和订阅转换，是移动端非常流行的代理工具。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 客户端延迟测试值不稳定怎么办？</h5></div>
-    <div class="panel-body">
-        可通过调整 Hysteria2 的 `recv_window` 与 `send_window` 参数改善传输性能，同时确保服务器带宽充足。若使用移动网络，建议启用 BBR 拥塞控制并降低测速频率以减少波动。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Nekoray 节点订阅更新不成功怎么办？</h5></div>
     <div class="panel-body">
-        检查订阅 URL 是否有效并确保网络通畅。可手动刷新或重新添加订阅链接，保证节点列表最新。结合策略组使用，确保稳定科学上网体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 如何兼容 Clash 的配置文件？</h5></div>
-    <div class="panel-body">
-        Sing-box 支持 Clash 规则格式的解析，用户可直接导入 Clash 的 YAML 配置文件进行使用。虽然部分高级参数需要调整，但大多数分流和策略配置都能自动识别，便于迁移。    </div>
+        检查订阅 URL 是否有效并确保网络通畅。可手动刷新或重新添加订阅链接，保证节点列表最新。结合策略组使用，确保稳定科学上网体验。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -397,16 +397,16 @@ A：检查节点是否过期，尝试更换协议和端口，确保配置无误�
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2026-8-24-node-share.htm" title="「8月24日」最高速度18.3M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「8月24日」最高速度18.3M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/clash-nyanpasu-node-2026-8-27.htm" title="「8月27日」最高速度18.4M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「8月27日」最高速度18.4M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-nyanpasu-node-2026-8-23.htm" title="「8月23日」最高速度19.1M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「8月23日」最高速度19.1M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-8-7.htm" title="「8月7日」最高速度18.5M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「8月7日」最高速度18.5M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-nyanpasu-node-2026-8-11.htm" title="「8月11日」最高速度22.7M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「8月11日」最高速度22.7M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-nyanpasu-2026-8-5.htm" title="「8月5日」最高速度21.8M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「8月5日」最高速度21.8M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-2-free-subscribe-node.htm" title="「8月2日」最高速度19.6M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「8月2日」最高速度19.6M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-nyanpasu-2026-8-13.htm" title="「8月13日」最高速度21.1M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「8月13日」最高速度21.1M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-8-19.htm" title="「8月19日」最高速度22.7M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「8月19日」最高速度22.7M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-20-node-share.htm" title="「7月20日」最高速度18.8M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「7月20日」最高速度18.8M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-28-node-share.htm" title="「8月28日」最高速度21.9M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「8月28日」最高速度21.9M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-14-free-clash-nyanpasu.htm" title="「8月14日」最高速度20.7M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「8月14日」最高速度20.7M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-10-node-share.htm" title="「8月10日」最高速度21.9M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「8月10日」最高速度21.9M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-nyanpasu-node-2026-8-11.htm" title="「8月11日」最高速度22.7M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「8月11日」最高速度22.7M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-8-25.htm" title="「8月25日」最高速度18.1M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「8月25日」最高速度18.1M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-21.htm" title="「8月21日」最高速度21.6M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「8月21日」最高速度21.6M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-6-free-node-subscribe.htm" title="「8月6日」最高速度22.5M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「8月6日」最高速度22.5M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-12-free-node-subscribe.htm" title="「8月12日」最高速度22.4M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接">「8月12日」最高速度22.4M/S，2025年Clash Nyanpasu每天更新免费节点订阅链接</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -418,10 +418,10 @@ A：检查节点是否过期，尝试更换协议和端口，确保配置无误�
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
+                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
             </li>
                     </ul>
     </div>
